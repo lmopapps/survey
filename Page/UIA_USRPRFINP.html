@@ -1,0 +1,136 @@
+<html pageid="UIA_USRPRFINP">
+	<head>
+		<title></title>
+		<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+	</head>
+	<body>
+		<div dataschemeid="A_USPRIN;[__PKEY1];;;;;;1;1;1;A_USPRAP.USERID|A_USPRAP;[__PKEY1];;;;;;0;1;1;" function="PAGE" pageid="UIA_USRPRFINP" script_page="afterLoad">
+			<div>
+				<div action_click="Ok:getCheckbox:0:SAVE,Cancel:cancelDialog:1" event_attach="#idbtnAddUserPrfAp" event_set="PKEY=#USER_ID;FKEY=;PKEY1=#USER_ID;PKEY2=;PKEY3=;PKEY4=;EXTENDEDPARAM=" function="DIALOG" gridview_id="divGridView" height="350" id="dialogParameter" pageid="UIA_USRPRFAPLI" title="Input User Profile Application ID" width="600">
+					</div>
+			</div>
+			<h1>
+				Input User Profile</h1>
+			<form method="post" name="frmUsrPrf">
+				<div class="btn-group pull-right">
+					<button action="SAVE" action_attribute="function_before_action:before_save;function_after_callback:__AFTER_SAVE;bgp_before_save:ADM_BEFOREUPDATEUSERS;bgp_after_save:ADM_AFTERUPDATEUSERS;after_callback_params:redirect_page=UIA_USRPRFWL,element_load_page=#content" class="btn SAVE" desc="Save" id="idbtnSave" name="btnSave" type="button" value="Save"><span class="icon-hdd"/>Save</button><button action="BACK" action_attribute="function_after_callback:__AFTER_CANCEL;after_callback_params:redirect_page=UIA_USRPRFWL,element_load_page=#content" align="left" class="btn BACK" desc="Back" id="idbtnCancel" name="btnCancel" type="button" value="Back"><span class="icon-arrow-left"/>Back</button></div>
+				<div class="row-fluid box-c2">
+					<div class="control-group span4">
+						<label class="control-label">User ID</label>
+						<div class="controls">
+							<input class="span9" field="USER_ID" id="idUser" name="idUser" placeholder="" readonlyonedit="readonlyonedit" type="text" validate="required|rangelength:[4,20]" validatemessage="User ID is required|User ID length must between 4-20 character" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Password</label>
+						<div class="controls">
+							<input class="span9" field="OLD_PASSWORD" id="idPass" name="idPass" placeholder="" type="password" validate="rangelength:[6,20]" validatemessage="Password length must be between 6-20 character" /> <input field="PASSWORD" id="idPassNew" name="idPassNew" placeholder="" type="hidden" typedata="string" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Username</label>
+						<div class="controls">
+							<input class="span9" field="USERNAME" id="idUsername" name="idUsername" placeholder="" type="text" validate="required" validatemessage="Username is required" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Never Expires</label> <label class="checkbox"><input field="NEVER_EXPIRES" id="idNvrExp" name="idNvrExp" placeholder="" type="checkbox" unchecked_value="0" value="1" /></label> <label class="control-label" id="labelExpired">Expired Date</label>
+						<div class="controls">
+							<input field="EXPIRED_DATE" format="dd/mm/yy" id="idExp" name="idExp" placeholder="" type="text" typedata="date" unchecked_value="0" value="1" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Privilege</label>
+						<div class="controls">
+							<input field="PRIVILEGE" id="privilege" type="hidden" /> <label class="checkbox"><input id="checkAdmin" name="checkAdmin" placeholder="" type="checkbox" unchecked_value="0" value="1" /> WorkFlow Administrator</label> <label class="checkbox"><input id="checkUser" name="checkUser" placeholder="" type="checkbox" unchecked_value="0" value="2" /> Application User</label></div>
+					</div>
+					<div class="control-group span4">
+						<input field="INVALID_PWD_COUNT" id="invalidpwdcount" type="hidden" />
+						<label class="control-label">Active</label> 
+						<label class="checkbox"><input field="ACTIVE" id="idActive" name="idActive" placeholder="" type="checkbox" unchecked_value="0" value="1" /></label></div>				
+					<div class="control-group span12">
+						<label class="control-label">Job Position</label>
+						<div class="controls">
+							<select class="span2" field="JABATAN" id="idJabatan" name="idJabatan" parameter="P_JABATAN" placeholder="" type="text">  </select></div>
+					</div>	
+					<div class="control-groups span4 groupSurveyor">
+						<label class="control-labels">ID No</label> 
+						<input desc="ID No" field="ID_CARD" id="idNo" name="idNo" type="text" typedata="String" />
+					</div>
+					<div class="control-groups span4 groupSurveyor">
+						<label class="control-labels">Address</label> 
+						<input desc="Address" field="ADDRESS" id="idAddress" name="idAddress" type="text" typedata="String" />
+					</div>
+					<div class="control-groups span4 groupSurveyor">
+						<label class="control-labels">Email</label> 
+						<input desc="Email" field="EMAIL" id="idAddress" name="idAddress" type="text" typedata="String" />
+					</div>
+					<div class="control-groups span4 groupSurveyor">
+						<label class="control-labels">HP</label> 
+						<input desc="HP" field="PHONE_NO" id="idPhoneNo" name="idPhoneNo" type="text" typedata="String" />
+					</div>					
+					<div class="control-groups span4 groupSurveyor">
+						<label class="control-labels">Zona Area</label> 
+						<div class="controls input-append">
+							<input field="ZONA_AREA_ID" id="idZonaArea" name="idZonaArea" type="hidden" typedata="number" />
+							<input field="ZONA" readonly="readonly" id="idZonaName" name="idZonaName" type="text" />
+							<button class="btn" id="idZonaBtn" name="idZonaBtn" type="button">
+								<span class="icon-search"/>
+							</button>
+						</div>
+						<div ds="DSPNY_LOOKUPZONAAREA" 
+							event_attach="#idZonaBtn" 
+							function="LOOKUP" 
+							height="450" 
+							id="idLookupZonaArea" 
+							name="idLookupZonaArea" 
+							selection_maping="#idZonaArea:HIDE_ZONA_AREA_ID,#idZonaName:ZONA,#idBranchPny:HIDE_BRANCH_ID,#idBranchName:BRANCH_NAME"
+							show_checkbox="0" 
+							title="Search Zona Area" 
+							width="900">
+						</div>
+					</div>	
+					<div class="control-groups span4 groupSurveyor">
+						<label class="control-labels">Branch</label> 
+						<div class="controls input-append">
+						<input class="span4" field="BRANCH_ID" id="idBranch" name="idBranch" placeholder="" readonly="readonly" type="hidden" typedata="string"/>
+						<input field="PNY_BRANCH_ID" id="idBranchPny" name="idBranchPny" type="hidden" typedata="number" />
+						<input field="BRANCH_NAME" readonly="readonly" id="idBranchName" name="idBranchName" type="text" />
+							<!-- <button class="btn" id="idBranchBtn" name="idBranchBtn" type="button">
+								<span class="icon-search"/>
+							</button> -->
+						</div>
+						<!-- <div ds="DSPNY_LOOKUPBRANCH" 
+							event_attach="#idBranchBtn" 
+							function="LOOKUP" 
+							height="450" 
+							id="idLookupBranch" 
+							name="idLookupBranch" 
+							selection_maping="#idBranchPny:HIDE_BRANCH_ID,#idBranchName:BRANCH_NAME"
+							show_checkbox="0" 
+							title="Search Branch" 
+							width="900">
+						</div> -->
+					</div>		
+					<!-- <div class="control-group span4">
+						<label class="control-label">Dept ID</label>
+						<div class="controls">
+							<input class="span9" field="DEPT_ID" id="idDept" maxlength="2" name="idDept" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Job Group</label>
+						<div class="controls">
+							<input class="span9" field="JOB_GROUP" id="idJob" maxlength="1" name="idJob" placeholder="" type="text" /></div>
+					</div> -->
+					<!-- <div class="control-group span4">
+						<label class="control-label">NIP</label>
+						<div class="controls">
+							<input class="span9" field="NIP" id="idNIP" name="idNIP" placeholder="" type="text" validate="required" validatemessage="NIP is required" /></div>
+					</div> -->
+				</div>
+				<div class="row-fluid box-c2">
+					<div class="btn-group">
+						<button align="left" class="btn ADD" desc="Add User Profile Application" id="idbtnAddUserPrfAp" name="btnAddUserProfApp" type="button" value="AddUserProfApp"><span class="icon-plus-sign"/>Add</button><button action="DELETE" action_attribute="component_id:divGridView;datascheme_id:A_USPRAP;is_save_onclick:0;after_callback_params:gridview_id=divGridView;function_after_callback:after_delete_offline;cascade_delete:" align="left" class="btn DELETE" desc="Delete User Profile Application" id="idbtnDelUserPrfApp" name="btnDelUserPrfApp" type="button" value="DeleteUserPrfApp"><span class="icon-remove-sign"/>Delete</button></div>
+					<div action_click="" auto_search="1" class="test" column_align="left" column_fields="APPLICATIONID" column_format="," column_names="Application ID" ds="A_USPRAP" event_attach="" fields="USER_ID,APPLICATIONID" function="GRIDVIEW_OFFLINE" function_callback_after="" function_callback_before="" id="divGridView" name="divGridView" show_checkbox="1" show_option="0" sort_columns="APPLICATIONID">
+						</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

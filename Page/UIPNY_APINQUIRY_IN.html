@@ -1,0 +1,776 @@
+<html pageid="UIPNY_APINQUIRY_IN">
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div dataschemeid="DSPNY_APINQUIRY;[__PKEY1];;;;;;1;1;1;" function="PAGE" pageid="UIPNY_APINQUIRY_IN" script_page="afterLoadInitiation">
+			<form id="frmAddConnection" method="post" name="frmAddConnection">
+				<h1>Application Inquiry Input</h1>
+				<div class="row-fluid">
+					<div class="btn-group pull-right">
+						<!-- <button action="PROCEED" action_attribute="function_after_callback:__AFTER_APPROVEFLOW;after_callback_params:redirect_page=PNY_APINQUIRY_WL,element_load_page=#content;bgp_after_save:;bgp_before_save:BGP_APINQUIRY_NEXT;function_before_action:" class="btn APPROVE" desc="Proceed" id="idbtnProceed" name="idbtnProceed" type="button" value="Proceed"><span class="icon-ok"/>Submit</button> -->
+						<!-- <button action="SAVE" action_attribute="function_after_callback:__AFTER_SAVE;after_callback_params:redirect_page=PNY_APINQUIRY_WL,element_load_page=#content" align="left" class="btn SAVE" desc="Save" id="idbtnSave" name="btnSave" type="button" value="Save"><span class="icon-hdd"/>Save</button> -->
+						<button action="BACK" action_attribute="function_after_callback:__AFTER_CANCEL;after_callback_params:redirect_page=PNY_APINQUIRY_WL,element_load_page=#content" align="left" class="btn BACK" desc="Back" id="idbtnCancel" name="btnCancel" type="button" value="Back"><span class="icon-arrow-left"/>Back</button>
+					</div>
+				</div>
+				<div class="row-fluid box-c2">
+				<div function="ACCORDION" id="accordion" role="tablist"> 			
+					<h3>Data Calon Nasabah</h3> 
+					<div>
+							<input desc="APPL_ID" field="APPL_ID"	id="txtAPPL_ID" name="txtAPPL_ID" type="hidden" typedata="number"/>		
+							<div class="control-group span4">
+								<label class="control-labels">Client</label> 
+								<div class="controls input-append">
+									<input desc="CLIENT_ID" field="CLIENT_ID"	id="txtCLIENT_ID" name="txtCLIENT_ID" type="hidden" typedata="number"/>	
+									<input field="CLIENT_NAME" disabled="disabled" id="idClientName" name="idClientName" type="text" validate="required" validatemessage="Client Name is required" />
+								<!-- 	<button class="btn" id="idClientBtn" name="idClientBtn" type="button">
+										<span class="icon-search"/>
+									</button> -->
+								</div>
+								<!-- <div ds="DSPNY_LOOKUPCLIENT" 
+									event_attach="#idClientBtn" 
+									function="LOOKUP" 
+									height="450" 
+									id="idLookupClient" 
+									name="idLookupClient" 
+									selection_maping="#txtCLIENT_ID:HIDE_CLIENT_ID,#idClientName:CLIENT_NAME"
+									show_checkbox="0" 
+									title="Search Client" 
+									width="900">
+								</div> -->
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">No Aplikasi</label>
+								<div class="controls">
+									<input desc="Application No" field="APPL_NO" disabled="disabled" id="txtAPPL_NO" name="txtAPPL_NO" type="text" typedata="string" validate="required" validatemessage="No Aplikasi is required"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Tgl. Terima</label>
+								<div class="controls">
+									<input field="ACCEPT_DATE" format="dd/mm/yy" id="txtACCEPT_DATE" name="txtACCEPT_DATE" type="text" disabled="disabled" typedata="date" validate="required" validatemessage="Tanggal Terima is required"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Service Type</label>
+								<div class="controls">
+									<select 
+										desc="SURVEY_TYPE" 
+										field="SURVEY_TYPE" 
+										id="txtSURVEY_TYPE" 
+										name="txtSURVEY_TYPE" 
+										parameter="PNY_SURVEY_TYPE" 
+										placeholder="" 
+										type="text" 
+										disabled="disabled"
+										validate="required" 
+										validatemessage="Survey Type is required">
+									</select>		
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Product Type</label>
+								<div class="controls">
+									<select 
+										desc="Product Type" 
+										field="PRODUCT_TYPE" 
+										id="txtPRODUCT_TYPE" 
+										name="txtPRODUCT_TYPE" 
+										parameter="PNY_PRODUCT_TYPE" 
+										placeholder="" 
+										type="text" 
+										disabled="disabled"
+										validate="required" 
+										validatemessage="Product Type is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Nama Aplikasi</label>
+								<div class="controls">
+									<input desc="Applicant Name" disabled="disabled" field="APPLICANT_NAME"	id="txtAPPLICANT_NAME" name="txtAPPLICANT_NAME" type="text" typedata="string" validate="required" validatemessage="Nama Aplikasi is required"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">No KTP</label>
+								<div class="controls">
+									<input desc="ID No" disabled="disabled" field="CARD_ID_NO"	id="txtCARD_ID_NO" name="txtCARD_ID_NO" type="text" typedata="string" validate="required" validatemessage="No KTP is required"/>
+								</div>
+							</div>
+								<div class="control-group span4">
+								<label class="control-label">Flag</label>
+								<div class="controls">
+									<select 
+										desc="SURVEY_METHOD" 
+										field="SURVEY_METHOD" 
+										id="txtSURVEY_METHOD" 
+										name="txtSURVEY_METHOD" 
+										parameter="PNY_SURVEY_METHOD" 
+										placeholder="" 
+										type="text" 
+										disabled="disabled"
+										validate="ReqtxtSURVEY_METHOD" 
+										validatemessage="Survey Method is required">
+									</select>
+								</div>
+							</div>					
+							<!-- <div class="control-group span4">
+								<label class="control-label">UPLOAD_ID</label>
+								<div class="controls"> -->
+									<input desc="UPLOAD_ID" field="UPLOAD_ID"	id="txtUPLOAD_ID" name="txtUPLOAD_ID" type="hidden" typedata="number"/>		
+						<!-- 		</div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Alamat</label>
+								<div class="controls">
+									<input desc="ADDRESS1" field="ADDRESS1"	id="txtADDRESS1" name="txtADDRESS1" type="text" typedata="string" disabled="disabled" validate="ReqtxtADDRESS1" validatemessage="Alamat is required"/>
+								</div>
+							</div>
+							<!-- <div class="control-group span4">
+								<label class="control-label">Kelurahan / Desa >></label>
+								<div class="controls input-append">
+									<input field="KELURAHAN" id="idKelurahan" name="idKelurahan" placeholder="" readonly="readonly" type="text" typedata="string" />
+									<button class="btn LOOKUP" id="btnLookupKelurahan" name="btnLookupKelurahan" type="button">
+										<span class="icon-search"/>
+									</button>
+								</div>
+								<div 
+									ds="T_LOSINITIATIONPOSTCODES" 
+									event_attach="#btnLookupKelurahan" 
+									event_set="" 
+									function="LOOKUP" 
+									height="500" 
+									id="lkPostCode" 
+									name="lkPostCode" 
+									selection_maping="#idKdPs:KODE_POS,#idKelurahan:KELURAHAN,#idKcmt:KECAMATAN" show_checkbox="0" title="Cari Kelurahan / Desa" width="1000">
+								</div>
+							</div> -->
+							<!-- <div class="control-group span4">
+								<label class="control-label">Kecamatan >></label>
+									<input field="KECAMATAN" id="idKcmt" name="idKcmt" placeholder="" readonly="readonly" type="text" />
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Kode Pos</label> 
+<!-- 								<input autocomplete_json="ds:DSPNY_LOOKUPKDINIT;pkey1:;pkey2:;pkey3:this;pkey4:;extendedparam:,;fields:BRANCH_NAME,POSTAL_CODE;label_format:[BRANCH_NAME] - ([POSTAL_CODE]);value_field:POSTAL_CODE;result:#idKdPs=POSTAL_CODE,#txtBRANCH_ID1=HIDE_BRANCH_ID,#txtBRANCH_NAME=BRANCH_NAME;menu_width:1000;min_length:1;" 
+								field="POSTAL_CODE" 
+								id="idKdPs" 
+								maxlength="5"
+								name="idKdPs" 
+								type="text" 
+								typedata="string" 
+								validate="ReqidKdPs|ReqKdPs" 
+								validatemessage="Field Kode Pos belum terisi|Data Kode Pos Tidak Ditemukan" /> -->
+								<div class="controls input-append">
+									<input field="POSTAL_CODE1" id="idKdPs" name="idKdPs" placeholder="" readonly="readonly" type="text" typedata="string" validate="ReqidKdPs|ReqKdPs" validatemessage="Field Kode Pos belum terisi|Data Kode Pos Tidak Ditemukan"/>
+									<!-- <button class="btn LOOKUP" id="btnLookupKodePost" name="btnLookupKodePost" type="button">
+										<span class="icon-search"/>
+									</button> -->
+								</div>
+							<!-- 	<div 
+									ds="DSPNY_LOOKUPKDINIT" 
+									event_attach="#btnLookupKodePost" 
+									event_set="" 
+									function="LOOKUP" 
+									height="500" 
+									id="lkPostCode" 
+									name="lkPostCode" 
+									selection_maping="#idKdPs:POSTAL_CODE,#txtBRANCH_ID1:HIDE_BRANCH_ID,#txtBRANCH_NAME:BRANCH_NAME  " show_checkbox="0" title="Cari Lokasi" width="1000">
+								</div> -->
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Cabang</label>
+								<div class="controls">
+									<input desc="BRANCH_ID1" field="BRANCH_ID1"	id="txtBRANCH_ID1" name="txtBRANCH_ID1" type="hidden" typedata="number"/>	
+									<input desc="BRANCH_NAME" field="BRANCH_NAME"	id="txtBRANCH_NAME" name="txtBRANCH_NAME" type="text" disabled="disabled" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Telp No</label>
+									<input field="PHONE_NO1" disabled="disabled" id="idTelpNo" name="idTelpNo" placeholder="" type="text" validate="ReqidTelpNo" validatemessage="Telp No is required"/>
+							</div>				
+					</div>
+				</div>
+				<div function="ACCORDION" id="accordion" role="tablist" class="classDataRumah"> 			
+					<h3>Hasil Survey Rumah</h3> 
+					<div>
+			<!-- 				<div class="control-group span4">
+								<label class="control-label">Deliver Date</label>
+								<div class="controls">
+									<input field="DELIVER_DATE" format="dd/mm/yy" id="txtDELIVER_DATE" name="txtDELIVER_DATE" type="text" typedata="date" />
+									
+								</div>
+							</div> -->
+							<!-- <div class="control-group span4">
+								<label class="control-label">Application Status</label>
+								<div class="controls">
+									<select 
+										desc="APPL_STATUS" 
+										field="APPL_STATUS" 
+										id="txtAPPL_STATUS" 
+										name="txtAPPL_STATUS" 
+										parameter="PNY_APPL_STATUS" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Status is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">RECORD_STATUS</label>
+								<div class="controls">
+									<select 
+										desc="RECORD_STATUS" 
+										field="RECORD_STATUS" 
+										id="txtRECORD_STATUS" 
+										name="txtRECORD_STATUS" 
+										parameter="PNY_RECORD_STATUS" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Record Status is required">
+									</select>
+								</div>
+							</div> -->
+							<!-- <div class="control-group span4">
+								<label class="control-label">CREATOR_ID</label>
+								<div class="controls">
+									<input desc="CREATOR_ID" field="CREATOR_ID"	id="txtCREATOR_ID" name="txtCREATOR_ID" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">CREATE_DATE</label>
+								<div class="controls">
+									<input desc="CREATE_DATE" field="CREATE_DATE"	id="txtCREATE_DATE" name="txtCREATE_DATE" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">LAST_USER_ID</label>
+								<div class="controls">
+									<input desc="LAST_USER_ID" field="LAST_USER_ID"	id="txtLAST_USER_ID" name="txtLAST_USER_ID" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">LAST_UPDATE</label>
+								<div class="controls">
+									<input desc="LAST_UPDATE" field="LAST_UPDATE"	id="txtLAST_UPDATE" name="txtLAST_UPDATE" type="text" typedata="string"/>
+								</div>
+							</div> -->						
+							<div class="control-group span4">
+								<label class="control-label">Alamat Sesuai</label>
+								<div class="controls">
+									<input field="IS_CORRESPOND_ADDRESS" id="txtIS_CORRESPOND_ADDRESS" name="txtIS_CORRESPOND_ADDRESS" type="checkbox" unchecked_value="T" value="Y" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Alamat Ditemukan</label>
+								<div class="controls">
+									<input field="IS_FOUND_ADDRESS" id="txtIS_FOUND_ADDRESS" name="txtIS_FOUND_ADDRESS" type="checkbox" unchecked_value="T" value="Y" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Alamat Ditemukan Tetapi Kantor Kosong/Pindah</label>
+								<div class="controls">
+									<input field="IS_MOVED_ADDRESS" id="txtIS_MOVED_ADDRESS" name="txtIS_MOVED_ADDRESS" type="checkbox" unchecked_value="T" value="Y" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Alamat Ditemukan Tetapi Aplikan Tidak Dikenal</label>
+								<div class="controls">
+									<input field="IS_UNKNOWN_APPLICANT" id="txtIS_UNKNOWN_APPLICANT" name="txtIS_UNKNOWN_APPLICANT" type="checkbox" unchecked_value="T" value="Y" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Patokan Alamat</label>
+								<div class="controls">
+									<textarea type="text" id="txtREFF_ADDRESS" class="span10" height="200px" typedata="string" name="txtREFF_ADDRESS" field="REFF_ADDRESS" data-original-title="" title=""></textarea>
+								</div>
+							</div>
+					</div>
+				</div>
+				<div function="ACCORDION" id="accordion" role="tablist" class="classDataRumah"> 			
+					<h3>Pihak Pertama (SI 1)</h3> 
+					<div>
+<!-- <h3>Pihak Pertama (SI 1)</h3>
+<div class="row-fluid"> -->
+							<div class="control-group span4">
+								<label class="control-label">Nama</label>
+								<div class="controls">
+									<input desc="NAME_OF_SURVEY1" field="NAME_OF_SURVEY1"	id="txtNAME_OF_SURVEY1" name="txtNAME_OF_SURVEY1" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Jenis Kelamin</label>
+								<div class="controls">
+									<select 
+										desc="SEX_TYPE" 
+										field="SEX_TYPE" 
+										id="txtSEX_TYPE" 
+										name="txtSEX_TYPE" 
+										parameter="PNY_SEX_TYPE" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Sex Type is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Hubungan Sumber Informasi</label>
+								<div class="controls">
+									<input desc="RESOURCE_RELATION_INFO1" field="RESOURCE_RELATION_INFO1"	id="txtRESOURCE_RELATION_INFO1" name="txtRESOURCE_RELATION_INFO1" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Lingkungan Rumah</label>
+								<div class="controls">
+									<select 
+										desc="Home Environment" 
+										field="HOME_ENVIRONMENT" 
+										id="txtHOME_ENVIRONMENT" 
+										name="txtHOME_ENVIRONMENT" 
+										parameter="PNY_HOME_ENVIRONMENT" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Home Environment is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Lokasi Rumah</label>
+								<div class="controls">
+									<select 
+										desc="Home Location" 
+										field="HOME_LOCATION" 
+										id="txtHOME_LOCATION" 
+										name="txtHOME_LOCATION" 
+										parameter="PNY_HOME_LOCATION" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Home Location is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Kondisi Jalan</label>
+								<div class="controls">
+									<select 
+										desc="Kondisi Jalan" 
+										field="ROAD_CONDITION" 
+										id="txtROAD_CONDITION" 
+										name="txtROAD_CONDITION" 
+										parameter="PNY_STREET_CONDITION" 
+										placeholder=""
+										type="text" 
+										validate="required" 
+										validatemessage="Kondisi Jalan is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Jumlah Tanggungan</label>
+								<div class="controls">
+									<input desc="Number of Amenability" field="NUMBER_OF_AMENABILITY" id="txtNUMBER_OF_AMENABILITY" name="txtNUMBER_OF_AMENABILITY" type="text" typedata="Number" validate="required" validatemessage="Number of Amenability is required" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Status Perkawinan</label>
+								<div class="controls">
+									<select 
+										desc="MARITAL_STATUS" 
+										field="MARITAL_STATUS" 
+										id="txtMARITAL_STATUS" 
+										name="txtMARITAL_STATUS" 
+										parameter="PNY_MARITAL_STATUS" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Marital Status is required">
+									</select>		
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Lama Tinggal (Tahun)</label>
+								<div class="controls">
+									<input desc="Length of Stay Year" field="LENGTH_OF_STAY_YEAR" id="txtLENGTH_OF_STAY_YEAR" name="txtLENGTH_OF_STAY_YEAR" type="text" typedata="Number" validate="required" validatemessage="Length of Stay Year" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Lama Tinggal (Bulan)</label>
+								<div class="controls">
+									<input desc="Length of Stay Month" field="LENGTH_OF_STAY_MONTH" id="txtLENGTH_OF_STAY_MONTH" name="txtLENGTH_OF_STAY_MONTH" type="text" typedata="Number" validate="required" validatemessage="Length of Stay Month" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Aplikan Tinggal di Sini</label>
+								<div class="controls">
+									<input field="IS_APPLICANT_STAYED" id="txtIS_APPLICANT_STAYED" name="txtIS_APPLICANT_STAYED" type="checkbox" unchecked_value="T" value="Y" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Nama Kantor Aplikan</label>
+								<div class="controls">
+									<input desc="OFFICE_NAME_APPLICANT" field="OFFICE_NAME_APPLICANT"	id="txtOFFICE_NAME_APPLICANT" name="txtOFFICE_NAME_APPLICANT" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Fasilitas Rumah</label>
+								<div class="controls">
+									<select 
+										desc="Home Facility" 
+										field="HOME_FACILITY" 
+										id="txtHOME_FACILITY" 
+										name="txtHOME_FACILITY" 
+										parameter="PNY_HOME_FACILITY" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Home Facility is required">
+									</select>	
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Status Kepemilikan</label>
+								<div class="controls">
+									<select 
+										desc="Owner Status" 
+										field="OWNERSHIP_STATUS1" 
+										id="txtOWNERSHIP_STATUS1" 
+										name="txtOWNERSHIP_STATUS1" 
+										parameter="PNY_OWNERSHIP_STATUS1" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Owner Status is required">
+									</select>	
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Jumlah Penghuni</label>
+								<div class="controls">
+									<input desc="Number of Occupant" field="NUMBER_OF_OCCUPANT" id="txtNUMBER_OF_OCCUPANT" name="txtNUMBER_OF_OCCUPANT" type="text" typedata="Number" validate="required" validatemessage="Number of Occupant is required" />
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Nama Ibu Kandung</label>
+								<div class="controls">
+									<input desc="MM_NAME" field="MM_NAME"	id="txtMM_NAME" name="txtMM_NAME" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Nama Suami / Istri</label>
+								<div class="controls">
+									<input desc="COUPLE_NAME" field="COUPLE_NAME"	id="txtCOUPLE_NAME" name="txtCOUPLE_NAME" type="text" typedata="string"/>
+								</div>
+							</div>							
+							<div class="control-group span4">
+								<label class="control-label">Nama Kantor Pasangan Aplikan</label>
+								<div class="controls">
+									<input desc="OFFICE_NAME_SPOUSE_APPLICANT" field="OFFICE_NAME_SPOUSE_APPLICANT"	id="txtOFFICE_NAME_SPOUSE_APPLICANT" name="txtOFFICE_NAME_SPOUSE_APPLICANT" type="text" typedata="string"/>
+								</div>
+							</div>
+<!-- </div>
+<h3>Pihak Pertama (SI 2)</h3>
+<div class="row-fluid">		 -->	
+				</div>
+			</div>
+			<div function="ACCORDION" id="accordion" role="tablist" class="classDataRumah"> 			
+				<h3>Pihak Pertama (SI 2)</h3> 
+				<div>				
+							<div class="control-group span4">
+								<label class="control-label">Nama</label>
+								<div class="controls">
+									<input desc="NAME_OF_SURVEY2" field="NAME_OF_SURVEY2"	id="txtNAME_OF_SURVEY2" name="txtNAME_OF_SURVEY2" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Hubungan Sumber Informasi</label>
+								<div class="controls">
+									<input desc="RESOURCE_RELATION_INFO2" field="RESOURCE_RELATION_INFO2"	id="txtRESOURCE_RELATION_INFO2" name="txtRESOURCE_RELATION_INFO2" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Aplikan Dikenal</label>
+								<div class="controls">
+									<input field="IS_KNOWN_APPLICANT2" id="txtIS_KNOWN_APPLICANT2" name="txtIS_KNOWN_APPLICANT2" type="checkbox" unchecked_value="T" value="Y" />
+									&nbsp; Ket : <input desc="UNKNOWN_APPLICANT2" field="UNKNOWN_APPLICANT2"	id="txtUNKNOWN_APPLICANT2" name="txtUNKNOWN_APPLICANT2" type="text" typedata="string"/>
+								</div>
+							</div>
+<!-- 							<div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls"> -->
+								
+<!-- 								</div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Status Kepemilikan</label>
+								<div class="controls">
+									<select 
+										desc="Is Correnspond Ownership" 
+										field="IS_CORRESPOND_OWNERSHIP2" 
+										id="txtIS_CORRESPOND_OWNERSHIP2" 
+										name="txtIS_CORRESPOND_OWNERSHIP2" 
+										parameter="PNY_CORRESPONDNO_STATUS" 
+										placeholder="" class="span2"
+										type="text" 
+										validate="required" 
+										validatemessage="Is Correnspond Ownership is required">
+									</select>
+									&nbsp; Ket : <input desc="UNCORRESPOND_OWNERSHIP2" field="UNCORRESPOND_OWNERSHIP2"	id="txtUNCORRESPOND_OWNERSHIP2" name="txtUNCORRESPOND_OWNERSHIP2" type="text" typedata="string"/>
+								</div>
+							</div>
+							<!-- <div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls">
+									
+								</div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Lama Tinggal</label>
+								<div class="controls">
+									<select 
+										desc="Is Correnspond Length of Stay 2" 
+										field="IS_CORRESPOND_LENGTH_OF_STAY2" 
+										id="txtIS_CORRESPOND_LENGTH_OF_STAY2" 
+										name="txtIS_CORRESPOND_LENGTH_OF_STAY2" 
+										parameter="PNY_CORRESPONDNO_STATUS" 
+										placeholder="" 
+										class="span2"
+										type="text" 
+										validate="required" 
+										validatemessage="Is Correnspond Length of Stay 2 is required">
+									</select>
+									&nbsp; Ket : <input desc="UNCORRESPOND_LENGTH_OF_STAY2" field="UNCORRESPOND_LENGTH_OF_STAY2"	id="txtUNCORRESPOND_LENGTH_OF_STAY2" name="txtUNCORRESPOND_LENGTH_OF_STAY2" type="text" typedata="string"/>
+								</div>
+							</div>
+<!-- 							<div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls">
+								
+								</div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Aplikan Anggota LSM* khusus KPM</label>
+								<div class="controls">
+									<input field="IS_LSM_MEMBER2" id="txtIS_LSM_MEMBER2" name="txtIS_LSM_MEMBER2" type="checkbox" unchecked_value="T" value="Y" />
+									&nbsp; Ket : <input desc="NON_LSM_MEMBER2" field="NON_LSM_MEMBER2"	id="txtNON_LSM_MEMBER2" name="txtNON_LSM_MEMBER2" type="text" typedata="string"/>
+								</div>
+							</div>						
+							<!-- <div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls">
+									
+								</div>
+							</div> -->
+<!-- </div>
+<h3>Pihak Pertama (SI 3)</h3>
+<div class="row-fluid"> -->
+				</div>
+			</div>
+			<div function="ACCORDION" id="accordion" role="tablist" class="classDataRumah"> 			
+				<h3>Pihak Pertama (SI 3)</h3> 
+				<div>
+							<div class="control-group span4">
+								<label class="control-label">Nama</label>
+								<div class="controls">
+									<input desc="NAME_OF_SURVEY3" field="NAME_OF_SURVEY3"	id="txtNAME_OF_SURVEY3" name="txtNAME_OF_SURVEY3" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Hubungan Sumber Informasi</label>
+								<div class="controls">
+									<input desc="RESOURCE_RELATION_INFO3" field="RESOURCE_RELATION_INFO3"	id="txtRESOURCE_RELATION_INFO3" name="txtRESOURCE_RELATION_INFO3" type="text" typedata="string"/>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Aplikan Dikenal</label>
+								<div class="controls">
+									<input field="IS_KNOWN_APPLICANT3" id="txtIS_KNOWN_APPLICANT3" name="txtIS_KNOWN_APPLICANT3" type="checkbox" unchecked_value="T" value="Y" />
+									&nbsp; Ket : <input desc="UNKNOWN_APPLICANT3" field="UNKNOWN_APPLICANT3"	id="txtUNKNOWN_APPLICANT3" name="txtUNKNOWN_APPLICANT3" type="text" typedata="string"/>
+								</div>
+							</div>
+			<!-- 				<div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls"> -->									
+								<!-- </div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Status Kepemilikan</label>
+								<div class="controls">
+									<select 
+										desc="Is Correnspond Ownership 3" 
+										field="IS_CORRESPOND_OWNERSHIP3" 
+										id="txtIS_CORRESPOND_OWNERSHIP3" 
+										name="txtIS_CORRESPOND_OWNERSHIP3" 
+										parameter="PNY_CORRESPONDNO_STATUS" 
+										placeholder="" 
+										type="text"  class="span2"
+										validate="required" 
+										validatemessage="Is Correnspond Ownership 3 is required">
+									</select>
+									&nbsp; Ket : <input desc="UNCORRESPOND_OWNERSHIP3" field="UNCORRESPOND_OWNERSHIP3"	id="txtUNCORRESPOND_OWNERSHIP3" name="txtUNCORRESPOND_OWNERSHIP3" type="text" typedata="string"/>
+								</div>
+							</div>
+						<!-- 	<div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls">
+									
+								</div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Lama Tinggal</label>
+								<div class="controls">
+									<select 
+										desc="Is Correnspond Length of Stay 3" 
+										field="IS_CORRESPOND_LENGTH_OF_STAY3" 
+										id="txtIS_CORRESPOND_LENGTH_OF_STAY3" 
+										name="txtIS_CORRESPOND_LENGTH_OF_STAY3" 
+										parameter="PNY_CORRESPONDNO_STATUS" 
+										placeholder="" 
+										type="text"  class="span2"
+										validate="required" 
+										validatemessage="Is Correnspond Length of Stay 3 is required">
+									</select>
+									&nbsp; Ket : <input desc="UNCORRESPOND_LENGTH_OF_STAY3" field="UNCORRESPOND_LENGTH_OF_STAY3"	id="txtUNCORRESPOND_LENGTH_OF_STAY3" name="txtUNCORRESPOND_LENGTH_OF_STAY3" type="text" typedata="string"/>
+								</div>
+							</div>
+							<!-- <div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls">
+								
+								</div>
+							</div> -->
+							<div class="control-group span4">
+								<label class="control-label">Aplikan Anggota LSM* khusus KPM</label>
+								<div class="controls">
+									<input field="IS_LSM_MEMBER3" id="txtIS_LSM_MEMBER3" name="txtIS_LSM_MEMBER3" type="checkbox" unchecked_value="T" value="Y" />
+									&nbsp; Ket : <input desc="NON_LSM_MEMBER3" field="NON_LSM_MEMBER3"	id="txtNON_LSM_MEMBER3" name="txtNON_LSM_MEMBER3" type="text" typedata="string"/>
+								</div>
+							</div>
+							<!-- <div class="control-group span4">
+								<label class="control-label">Keterangan</label>
+								<div class="controls">
+									
+								</div>
+							</div> -->
+
+			</div>
+			</div>
+			<div function="ACCORDION" id="accordion" role="tablist" class="classDataRumah"> 			
+				<h3>Hasil Pengamatan Saat Survey</h3> 
+				<div>
+							<div class="control-group span4">
+								<label class="control-label">Kondisi Bangunan Rumah</label>
+								<div class="controls">
+									<select 
+										desc="Home Condition" 
+										field="HOME_CONDITION" 
+										id="txtHOME_CONDITION" 
+										name="txtHOME_CONDITION" 
+										parameter="PNY_HOME_CONDITION" 
+										placeholder="" 
+										type="text" 
+										validate="required" 
+										validatemessage="Home Condition is required">
+									</select>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Luas Tanah</label>
+								<div class="controls">
+									<input class="span2" desc="Length of Land" field="LENGTH_OF_LAND" id="txtLENGTH_OF_LAND" name="txtLENGTH_OF_LAND" type="text" typedata="Number" validate="required" validatemessage="Length of Land is required" /> M 
+									X
+									<input class="span2" desc="Width of Land" field="WIDTH_OF_LAND" id="txtWIDTH_OF_LAND" name="txtWIDTH_OF_LAND" type="text" typedata="Number" validate="required" validatemessage="Width of Land is required" /> M 
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Luas Bangunan</label>
+								<div class="controls">
+									<input class="span2"  desc="Length of Build" field="LENGTH_OF_BUILD" id="txtLENGTH_OF_BUILD" name="txtLENGTH_OF_BUILD" type="text" typedata="Number" validate="required" validatemessage="Length of Build is required" /> M 
+									X
+									<input class="span2"  desc="Width of Build" field="WIDTH_OF_BUILD" id="txtWIDTH_OF_BUILD" name="txtWIDTH_OF_BUILD" type="text" typedata="Number" validate="required" validatemessage="Width of Build is required" /> M 
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Lebar Jalan</label>
+								<div class="controls">
+									<input class="span2" desc="Width of Road" field="WIDTH_OF_ROAD" id="txtWIDTH_OF_ROAD" name="txtWIDTH_OF_ROAD" type="text" typedata="Number" validate="required" validatemessage="Width of Road is required" /> M 
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Jumlah Lantai Rumah</label>
+								<div class="controls">
+									<input desc="Number of Floor" field="NUMBER_OF_FLOOR" id="txtNUMBER_OF_FLOOR" name="txtNUMBER_OF_FLOOR" type="text" typedata="Number" validate="required" validatemessage="Number of Floor is required" /> Tingkat
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Kendaraan yang dimiliki</label>
+								<div class="controls">
+									<input desc="Number of Vehicle" field="NUMBER_OF_VEHICLE" id="txtNUMBER_OF_VEHICLE" name="txtNUMBER_OF_VEHICLE" type="text" typedata="Number" validate="required" validatemessage="Number of Vehicle is required" />
+								</div>
+							</div>
+			</div>
+			</div>
+			<div function="ACCORDION" id="accordion" role="tablist" class="classDataRumah"> 			
+				<h3>Surveyor</h3> 
+				<div>
+									<!-- 	<div class="control-group span4">
+								<label class="control-label">SURVEY_ID</label>
+								<div class="controls"> -->
+									<input desc="SURVEY_ID" field="SURVEY_ID"	id="txtSURVEY_ID" name="txtSURVEY_ID" type="hidden" typedata="number"/>		
+			<!-- 					</div>
+							</div>
+ -->
+							<div class="control-group span4">
+								<label class="control-labels">Nama Surveyor</label> 
+								<div class="controls input-append">
+									<input field="SURVEYOR_ID" id="txtSURVEYOR_ID" name="txtSURVEYOR_ID" type="hidden" typedata="number" />
+									<input field="SURVEYOR_NAME" readonly="readonly" id="idSurveyorName" name="idSurveyorName" type="text" validate="required" validatemessage="Surveyor Name is required" />
+									<!-- <button class="btn" id="idSurveyorBtn" name="idSurveyorBtn" type="button">
+										<span class="icon-search"/>
+									</button> -->
+								</div>
+								<!-- <div ds="DSPNY_LOOKUPSURVEYOR" 
+									event_attach="#idSurveyorBtn" 
+									function="LOOKUP" 
+									height="450" 
+									id="idLookupSurveyor" 
+									name="idLookupSurveyor" 
+									selection_maping="#txtSURVEYOR_ID:HIDE_SURVEYOR_ID,#idSurveyorName:NAME"
+									show_checkbox="0" 
+									title="Search Surveyor" 
+									width="900">
+								</div> -->
+							</div>		
+							<div class="control-group span4">
+								<label class="control-label">Tanggal Survey</label>
+								<div class="controls">
+									<input field="SURVEY_DATE" format="dd/mm/yy" id="txtSURVEY_DATE" name="txtSURVEY_DATE" type="text" typedata="date" />
+								</div>
+							</div>							
+							<div class="control-group span12">
+								<label class="control-label">Survey Note</label>
+								<div class="controls">
+									<!-- <input desc="SURVEY_NOTE" field="SURVEY_NOTE" id="txtSURVEY_NOTE" name="txtSURVEY_NOTE" type="text" typedata="string"/> -->
+									<textarea type="text" id="txtSURVEY_NOTE" class="span10" height="200px" typedata="string" name="txtSURVEY_NOTE" field="SURVEY_NOTE" data-original-title="" title=""></textarea>
+								</div>
+							</div>
+							<div class="control-group span12">
+								<label class="control-label">Informasi Tambahan</label>
+								<div class="controls">
+									<!-- <input desc="SURVEY_ADD_INFO" field="SURVEY_ADD_INFO"	id="txtSURVEY_ADD_INFO" name="txtSURVEY_ADD_INFO" type="text" typedata="string"/> -->
+									<textarea type="text" id="txtSURVEY_ADD_INFO" class="span10" height="200px" typedata="string" name="txtSURVEY_ADD_INFO" field="SURVEY_ADD_INFO" data-original-title="" title=""></textarea>
+								</div>
+							</div>
+							
+
+					<!-- </div> -->
+				</div>
+		</div>		
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

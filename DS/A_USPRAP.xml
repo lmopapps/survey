@@ -1,0 +1,20 @@
+<root DSID="A_USPRAP">
+<table name="USERS" connid="cn2" viewonly="true">
+	<field fieldname="USER_ID" fieldtype="VARCHAR2" fieldview="USER_ID"/>
+	<pkey id="1" fieldname="USER_ID" fieldtype="VARCHAR2" fieldview="USER_ID"/>
+</table>
+
+<table name="USERAPPLICATION" connid="cn2">
+	<field fieldname="APPLICATIONID" fieldtype="VARCHAR2" fieldview="APPLICATIONID"/>
+	<field fieldname="USERID" fieldtype="VARCHAR2" fieldview="USER_ID"/>
+	<pkey id="1" fieldname="USERID" fieldtype="VARCHAR2" fieldview="USER_ID"/>
+	<pkey id="2" fieldname="APPLICATIONID" fieldtype="VARCHAR2" fieldview="APPLICATIONID"/>
+</table>
+
+<select>
+SELECT U.USER_ID, USAPP.APPLICATIONID
+FROM   USERS U
+INNER   JOIN USERAPPLICATION USAPP
+ON     U.USER_ID = USAPP.USERID
+</select>
+</root>

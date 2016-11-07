@@ -1,0 +1,96 @@
+<html pageid="UIA_DSINP">
+	<head>
+		<title></title>
+		<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+	</head>
+	<body>
+		<div dataschemeid="A_DS;[__PKEY1];;[__PKEY3];;;;1;1;1;" function="PAGE" pageid="UIA_DSINP" script_page="afterLoad">
+			<h1>
+				Input Datascheme</h1>
+			<form method="post" name="frmDS">
+				<div class="btn-group pull-right">
+					<button 
+						action="SAVE" 
+						action_attribute="function_after_callback:__AFTER_SAVE;after_callback_params:redirect_page=UIA_DSWL,element_load_page=#content;bgp_after_save:BGPAF_DATASCHEME;function_before_action:updatePreview" 
+						class="btn SAVE" 
+						desc="Save" 
+						id="idbtnSave" 
+						name="btnSave" 
+						type="button" 
+						value="Save">
+						<span class="icon-hdd"/>Save
+					</button>
+					<button 
+						action="BACK" 
+						action_attribute="function_after_callback:__AFTER_CANCEL;after_callback_params:redirect_page=UIA_DSWL,element_load_page=#content" 
+						class="btn BACK" 
+						desc="Back" 
+						id="idbtnCancel" 
+						name="btnCancel" 
+						type="button" 
+						value="Back">
+						<span class="icon-arrow-left"/>Back
+					</button>
+				</div>
+				<div class="row-fluid box-c2">
+					<div class="control-group span4">
+						<label class="control-label">DataScheme ID</label>
+						<div class="controls">
+							<input class="span9" field="DATASCHEMEID" id="idDataschemeId" name="idDataschemeId" placeholder="" readonlyonedit="readonlyonedit" type="text" validate="required|maxlength:25" validatemessage="DataScheme ID is required|Maximal Datascheme ID is 25" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Conn ID</label>
+						<div class="controls">
+							<select desc="Connection" field="CONNID" id="idConnId" name="idConnId" parameter="__Connection" placeholder="" type="text" validate="required" validatemessage="Conn ID is required"></select>
+						</div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Scheme Name</label>
+						<div class="controls">
+							<input class="span9" field="SCHEMENAME" id="idSchemeName" name="idSchemeName" placeholder="" type="text" validate="required" validatemessage="Scheme Name is required" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Fields</label>
+						<div class="controls">
+							<input class="span9" field="FIELDS" id="idFields" name="idFields" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">OrderBy</label>
+						<div class="controls">
+							<input class="span9" field="ORDERBY" id="idOrderBy" name="idOrderBy" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Key1</label>
+						<div class="controls">
+							<input class="span9" field="PKEY1" id="idKey1" name="idKey1" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Key2</label>
+						<div class="controls">
+							<input class="span9" field="PKEY2" id="idKey2" name="idKey2" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Key3</label>
+						<div class="controls">
+							<input class="span9" field="PKEY3" id="idKey3" name="idKey3" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-label">Key4</label>
+						<div class="controls">
+							<input class="span9" field="PKEY4" id="idKey4" name="idKey4" placeholder="" type="text" /></div>
+					</div>
+					<div class="control-group span12">
+						<label class="control-label">Data Set</label>
+						<div style="background-color: #ffffff">
+							<input class="span12" field="DATASET" id="DataSet" name="DataSet" type="hidden" /><textarea class="span12 valid" id="idDataSet" name="idDataSet" placeholder="" type="text"></textarea></div>
+					</div>
+					<div class="control-group span12">
+						<label class="control-label">Extended Query</label>
+						<div style="background-color: #ffffff">
+							<input class="span12" field="EXTENDEDQUERY" id="ExtendQuery" name="ExtendQuery" type="hidden" /><textarea class="span12" id="idExtendQuery" name="idExtendQuery" placeholder="" type="text"></textarea></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

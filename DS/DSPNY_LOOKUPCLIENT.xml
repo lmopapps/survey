@@ -1,0 +1,28 @@
+<root DSID="DSPNY_LOOKUPCLIENT">
+	<table name="PNY_MD_CLIENT" connid="cn1">
+		<field fieldname="CLIENT_ID" fieldtype="NUMBER" fieldview="HIDE_CLIENT_ID"/>
+		<field fieldname="CLIENT_CODE" fieldtype="VARCHAR2" fieldview="CLIENT_CODE"/>
+		<field fieldname="CLIENT_NAME" fieldtype="VARCHAR2" fieldview="CLIENT_NAME"/>
+		<field fieldname="EMAIL" fieldtype="VARCHAR2" fieldview="EMAIL"/>
+		<field fieldname="RECORD_STATUS" fieldtype="VARCHAR2" fieldview="HIDE_RECORD_STATUS"/>
+		<field fieldname="CREATED_BY" fieldtype="VARCHAR2" fieldview="HIDE_CREATED_BY"/>
+		<field fieldname="CREATED_ON" fieldtype="DATE" fieldview="HIDE_CREATED_ON"/>
+		<field fieldname="MODIFIED_BY" fieldtype="VARCHAR2" fieldview="HIDE_MODIFIED_BY"/>
+		<field fieldname="MODIFIED_ON" fieldtype="DATE" fieldview="HIDE_MODIFIED_ON"/>
+		<pkey id="1" fieldname="CLIENT_ID" fieldtype="NUMBER" seq="PNY_MD_CLIENT_SEQ"/>
+	</table>	
+<select>
+	SELECT
+		PMC.CLIENT_ID AS HIDE_CLIENT_ID,
+		PMC.CLIENT_CODE,
+		PMC.CLIENT_NAME,
+		PMC.EMAIL,
+		PMC.RECORD_STATUS AS HIDE_RECORD_STATUS,
+		PMC.CREATED_BY AS HIDE_CREATED_BY,
+		PMC.CREATED_ON AS HIDE_CREATED_ON,
+		PMC.MODIFIED_BY AS HIDE_MODIFIED_BY,
+		PMC.MODIFIED_ON AS HIDE_MODIFIED_ON		
+	FROM
+	PNY_MD_CLIENT PMC
+</select>
+</root>

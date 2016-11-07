@@ -1,0 +1,62 @@
+<root DSID="A_USPRIN">
+<table name="USERS" connid="cn2">
+	<field fieldname="USER_ID" fieldtype="VARCHAR2" fieldview="USER_ID"/>
+	<field fieldname="USERNAME" fieldtype="VARCHAR2" fieldview="USERNAME"/>
+	<field fieldname="PASSWORD" fieldtype="VARCHAR2" fieldview="PASSWORD"/>
+	<field fieldname="USER_TYPE" fieldtype="CHAR" fieldview="USER_TYPE"/>
+	<field fieldname="NEVER_EXPIRES" fieldtype="INTEGER" fieldview="NEVER_EXPIRES"/>
+	<field fieldname="EXPIRED_DATE" fieldtype="DATE" fieldview="EXPIRED_DATE"/>
+	<field fieldname="PRIVILEGE" fieldtype="CHAR" fieldview="PRIVILEGE"/>
+	<field fieldname="ACTIVE" fieldtype="INTEGER" fieldview="ACTIVE"/>
+	<field fieldname="JABATAN" fieldtype="VARCHAR2" fieldview="JABATAN"/>
+	<field fieldname="BRANCH_ID" fieldtype="VARCHAR2" fieldview="BRANCH_ID"/>
+	<field fieldname="DEPT_ID" fieldtype="VARCHAR2" fieldview="DEPT_ID"/>
+	<field fieldname="JOB_GROUP" fieldtype="CHAR" fieldview="JOB_GROUP"/>
+	<field fieldname="LAST_UPDATE" fieldtype="DATE" fieldview="LAST_UPDATE"/>
+	<field fieldname="LAST_USER_ID" fieldtype="VARCHAR2" fieldview="LAST_USER_ID"/>
+	<field fieldname="CREATED_DATE" fieldtype="DATE" fieldview="CREATED_DATE"/>
+	<field fieldname="CREATOR_ID" fieldtype="VARCHAR2" fieldview="CREATOR_ID"/>
+	<field fieldname="NIP" fieldtype="VARCHAR2" fieldview="NIP"/>
+	<field fieldname="PNY_BRANCH_ID" fieldtype="VARCHAR2" fieldview="PNY_BRANCH_ID"/>
+	<field fieldname="ZONA_AREA_ID" fieldtype="INTEGER" fieldview="ZONA_AREA_ID"/>
+	<field fieldname="ID_CARD" fieldtype="VARCHAR2" fieldview="ID_CARD"/>
+	<field fieldname="EMAIL" fieldtype="VARCHAR2" fieldview="EMAIL"/>
+	<field fieldname="ADDRESS" fieldtype="VARCHAR2" fieldview="ADDRESS"/>
+	<field fieldname="PHONE_NO" fieldtype="VARCHAR2" fieldview="PHONE_NO"/>
+	<pkey id="1" fieldname="USER_ID" fieldtype="VARCHAR2"/>
+</table>
+<table name="DUMMY" viewonly="true">
+	<field fieldname="OLD_PASSWORD" fieldtype="VARCHAR2" fieldview="OLD_PASSWORD"/>
+	<field fieldname="BRANCH_NAME" fieldtype="VARCHAR2" fieldview="BRANCH_NAME"/>
+	<field fieldname="ZONA" fieldtype="VARCHAR2" fieldview="ZONA"/>
+</table>
+<select>
+	SELECT 
+		U.USER_ID,
+		U.USERNAME,
+		U.PASSWORD,
+		U.PASSWORD AS OLD_PASSWORD,
+		U.USER_TYPE,
+		U.NEVER_EXPIRES,
+		U.EXPIRED_DATE,
+		U.PRIVILEGE,
+		U.ACTIVE,
+		U.JABATAN,
+		U.BRANCH_ID,
+		U.DEPT_ID,
+		U.JOB_GROUP,
+		U.LAST_UPDATE,
+		U.LAST_USER_ID,
+		U.CREATED_DATE,
+		U.CREATOR_ID,
+		U.NIP,	
+		U.PNY_BRANCH_ID,
+		(SELECT BRANCH_NAME FROM PNY_MD_BRANCH WHERE BRANCH_ID = U.PNY_BRANCH_ID) AS BRANCH_NAME,
+		(SELECT ZONA FROM pny_md_zona_area WHERE ZONA_AREA_ID = U.ZONA_AREA_ID) AS ZONA,
+		U.ID_CARD,
+		U.EMAIL,
+		U.ADDRESS,
+		U.PHONE_NO
+	FROM USERS U
+</select>
+</root>

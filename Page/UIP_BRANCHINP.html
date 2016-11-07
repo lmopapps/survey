@@ -1,0 +1,152 @@
+<html pageid="UIP_BRANCHINP">
+	<head>
+		<title></title>
+		<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+	</head>
+	<body>
+		<div dataschemeid="P_BK_BRN_DTL;[__PKEY1];;;;;;1;1;1;P_BK_BRN_CL.BRANCH_ID,P_BK_BRN_DATE.BRANCH_ID|P_BK_BRN_CL;[__PKEY1];;;;;;0;1;1;|P_BK_BRN_DATE;[__PKEY1];;;;;;1;1;1;" function="PAGE" pageid="UIP_BRANCHINP" script_page="afterLoadBranch">
+			<form id="frmAddCustomer" method="post" name="frmAddCustomer">
+				<h1>
+					Input Branch</h1>
+				<div class="row-fluid">
+					<div class="btn-group pull-right">
+						<button action="SAVE" action_attribute="function_before_action:;function_after_callback:__AFTER_SAVE;after_callback_params:redirect_page=UIP_BRANCHWL,element_load_page=#content" align="left" class="btn SAVE" desc="Save" id="idbtnSave" name="btnSave" type="button" value="Save"><span class="icon-hdd"/>Save</button><button action="BACK" action_attribute="function_after_callback:__AFTER_CANCEL;after_callback_params:redirect_page=UIP_BRANCHWL,element_load_page=#content" align="left" class="btn BACK" desc="Back" id="idbtnCancel" name="btnCancel" type="button" value="Back"><span class="icon-arrow-left"/>Back</button></div>
+				</div>
+				<div class="row-fluid box-c1">
+					<div function="ACCORDION" id="accordion" role="tablist">
+						<h3>
+							Branch</h3>
+						<div class="row-fluid" id="branch">
+							<div class="control-groups span4">
+								<label class="control-label">Branch ID</label><input class="span8" field="BRANCH_ID" id="idBranchID" name="idBranchID" readonlyonedit="readonlyonedit" type="text" typedata="string" validate="required|validateBranchID" validatemessage="Branch ID is required|Data already exist in databases" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Status Aktif</label><input class="span2" field="STATUS" id="ActiveStat" name="ActiveStat" type="checkbox" unchecked_value="0" value="1" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Branch Level</label> <select class="span8" desc="Customer Name" field="BRANCH_LEVEL" id="idBranchLvl" name="idBranchLvl" parameter="P_Branchlevel" type="text" typedata="string"></select></div>
+							<div class="control-groups span9">
+								<label class="control-label">Branch Address</label><textarea class="span4" field="BRANCH_ADDRESS" id="idBranchAddr" name="idBranchAddr" rows="5" style="white-space:pre-wrap;resize:none;width:235px;" typedata="string"></textarea></div>
+							<div class="control-groups span4">
+								<label class="control-label">HO Flag</label><input class="span2" field="HO_FLAG" id="HOFlag" name="HOFlag" type="checkbox" unchecked_value="N" value="Y" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Parent Branch Code</label>
+								<div class="controls input-append">
+									<input class="uneditable-input" desc="Parent Branch Code" field="PARENT_BRANCH_CODE" id="idParentBrchCode" name="idParentBrchCode" readonly="readonly" type="text" typedata="string" /><button class="LOOKUP btn" id="btnParentBrchCode" name="btnParentBrchCode" type="button"><span class="icon-search"/></button></div>
+								<div ds="P_LOOKBRNCH" event_attach="#btnParentBrchCode" function="LOOKUP" height="500" id="dialogParentBrnchCode" name="dialogParentBrnchCode" selection_maping="#idParentBrchCode:BRANCH_ID" show_checkbox="0" title="Search Parent Branch Code" width="850">
+									&nbsp;</div>
+							</div>
+							<div class="control-groups span4">
+								<label class="control-label">Branch Name</label> <input field="BRANCH_NAME" id="idBranchName" name="idBranchName" type="text" typedata="string" validate="required" validatemessage="Branch Name is required" /></div>
+						</div>
+						<h3>
+							Region</h3>
+						<div class="row-fluid" id="region">
+							<div class="control-groups span4">
+								<label class="control-label">Kelurahan / Desa</label>
+								<div class="controls input-append">
+									<input class="uneditable-input" field="DISTRICT_01" id="idKelurahan" name="idKelurahan" placeholder="" readonly="readonly" type="text" typedata="string" /><button class="btn LOOKUP" id="btnLookupKelurahan" name="btnLookupKelurahan" type="button"><span class="icon-search"/></button></div>
+								<div ds="T_LOSINITIATIONPOSTCODES" event_attach="#btnLookupKelurahan" event_set="" function="LOOKUP" height="500" id="lkPostCode" name="lkPostCode" selection_maping="#idPrvs:HIDE_PROVINCE_ID,#idProvinceName:PROVINSI,#idKdPs:KODE_POS,#idProvinsi:PROVINSI,#idKotaKab:KABUPATEN_KOTAMADYA,#idKelurahan:KELURAHAN,#idKcmt:KECAMATAN,#idSandiDatiName:SANDI_DATI_II,#idSandiDati:HIDE_SUB_PROVINCE_ID" show_checkbox="0" title="Cari Kelurahan / Desa" width="1000">
+									&nbsp;</div>
+							</div>
+							<div class="control-groups span4">
+								<label class="control-label">Kecamatan</label><input class="span8" field="DISTRICT_02" id="idKcmt" name="idKcmt" placeholder="" readonly="readonly" type="text" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Kota/Kabupaten</label><input class="span8" field="DISTRICT_03" id="idKotaKab" name="idKotaKab" placeholder="" readonly="readonly" type="text" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Provinsi</label><input class="span8" field="PROVINCE_NAME" id="idProvinceName" name="idProvinceName" placeholder="" readonly="readonly" type="text" /><input class="span8" field="PROVINCE_ID" id="idPrvs" name="idPrvs" placeholder="" type="hidden" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Sandi Dati II</label><input class="span8" field="SUB_PROVINCE_NAME" id="idSandiDatiName" name="idSandiDatiName" placeholder="" readonly="readonly" type="text" /><input class="span8" field="SUB_PROVINCE_ID" id="idSandiDati" name="idSandiDati" placeholder="" type="hidden" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Kode Pos</label> <input autocomplete_json="ds:T_LOSINITIATIONPOSTCODES;pkey1:;pkey2:this;pkey3:;pkey4:;extendedparam:,;fields:KODE_POS,HIDE_PROVINCE_ID,HIDE_COUNTRY_IDKODE_POS,PROVINSI,WILAYAH,KABUPATEN_KOTAMADYA,KELURAHAN,KECAMATAN,SANDI_DATI_II;label_format:[KODE_POS] - ([KELURAHAN]);value_field:KODE_POS;result:#idPrvs=HIDE_PROVINCE_ID,#idKdPs=KODE_POS,#idProvinceName=PROVINSI,#idKotaKab=KABUPATEN_KOTAMADYA,#idKelurahan=KELURAHAN,#idKcmt=KECAMATAN,#idSandiDatiName=SANDI_DATI_II,#idSandiDati=HIDE_SUB_PROVINCE_ID;menu_width:1000;min_length:1;" class="span5" field="POSTAL_CODE" id="idKdPs" maxlength="5" name="idKdPs" placeholder="Type for autocomplete" type="text" typedata="string" validate="required|ReqKdPs" validatemessage="Field Kode Pos belum terisi|Data Kode Pos Tidak Ditemukan" /></div>
+						</div>
+						<h3>
+							Other</h3>
+						<div class="row-fluid" id="other">
+							<div class="control-groups span4">
+								<label class="control-label">Branch Email</label><input class="span8" field="BRANCH_EMAIL" id="idBranchMail" name="idBranchMail" type="text" typedata="string" validate="email" validatemessage="Please input valid email" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">NPWP</label> <input class="span8" field="NPWP" id="idNPWP" maxlength="16" name="idNPWP" type="text" typedata="string" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Branch GL</label>
+								<div class="controls input-append">
+									<input class="uneditable-input" field="DESC_BRANCH_GL" id="idBranchGLDesc" name="idBranchGLDesc" readonly="readonly" type="text" typedata="string" /><button class="btn LOOKUP" id="btnLookupBranch" name="btnLookupBranch" type="button"><span class="icon-search"/></button><input class="span3" desc="Branch GL" field="BRANCH_GL" id="idBranchGL" name="idBranchGL" readonly="readonly" type="hidden" typedata="string" />
+									<div ds="P_LOOKJRNGL" event_attach="#btnLookupBranch" event_set="" function="LOOKUP" height="500" id="lkBranchGL" name="lkBranchGL" selection_maping="#idBranchGL:GL_CODE,#idBranchGLDesc:DESCRIPTION" show_checkbox="0" title="Search Branch GL" width="1000">
+										&nbsp;</div>
+								</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Sub Branch GL</label>
+								<div class="controls input-append">
+									<input class="uneditable-input" field="DESCRIPTION" id="idSubBranchGLDesc" name="idSubBranchGLDesc" readonly="readonly" type="text" typedata="string" /><button class="btn LOOKUP" id="btnSubBranchGL" name="btnSubBranchGL" type="button"><span class="icon-search"/></button></div>
+								<input class="span3" field="SUB_BRANCH_GL" id="idSubBranchGL" name="idSubBranchGL" readonly="readonly" type="hidden" typedata="string" />
+								<div ds="P_LOOKJRNGL" event_attach="#btnSubBranchGL" event_set="" function="LOOKUP" height="500" id="dialogSubBranchGL" name="dialogSubBranchGL" selection_maping="#idSubBranchGL:GL_CODE,#idSubBranchGLDesc:DESCRIPTION" show_checkbox="0" title="Search Sub Branch GL" width="1000">
+									&nbsp;</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Base Currency Code</label>
+								<div class="controls input-append">
+									<input class="uneditable-input" field="BASE_CURRENCY_CODE" id="idBaseCurrency" name="idBaseCurrency" readonly="readonly" type="text" typedata="string" validate="required" validatemessage="Base Currency Code is required" /><button class="LOOKUP btn" id="btnBaseCurr" name="btnBaseCurr" type="button"><span class="icon-search"/></button></div>
+								<div ds="P_LOOKCURR" event_attach="#btnBaseCurr" function="LOOKUP" height="400" id="dialogBaseCurrency" name="dialogBaseCurrency" selection_maping="#idBaseCurrency:CODE" show_checkbox="0" title="Search Base Currency Code" width="650">
+									&nbsp;</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">KKB Flag</label> <select field="KKB_FLAG" id="idKKBFlag" name="idKKBFlag" parameter="P_YESNO_CHAR" type="text" typedata="string" validate="required" validatemessage="KKB Flag is required"></select></div>
+							<div class="control-group span4">
+								<label class="control-label">Collector Group</label>
+								<div class="controls input-append">
+									<input field="COLLECTOR_GROUP_ID" id="idCollectGroup" name="idCollectGroup" readonly="readonly" type="text" typedata="string" /><button class="LOOKUP btn" id="btnCollGroup" name="btnCollGroup" type="button"><span class="icon-search"/></button></div>
+								<div ds="P_LOOKCOLGRP" event_attach="#btnCollGroup" function="LOOKUP" height="400" id="dialogCollGroup" name="dialogCollGroup" selection_maping="#idCollectGroup:COLLECTOR_GROUP_ID" show_checkbox="0" title="Search Collector Group" width="650">
+									&nbsp;</div>
+							</div>
+							<div class="control-group span4">
+								<label class="control-label">Phone Number</label> <input class="span3" field="PHONE_AREA" id="idPhoneArea" maxlength="4" name="idPhoneArea" separator="" type="text" typedata="string" validate="number" validatemessage="Phone Area Should be filled by number" /> - <input class="span5" field="PHONE_NUMBER" id="idPhoneNumber" maxlength="8" name="idPhoneNumber" separator="" type="text" typedata="string" validate="number|maxlength:10" validatemessage="Phone Number Should be filled by number|Maximum Phone Number length is 10" /></div>
+							<div class="control-group span4">
+								<label class="control-label">Fax Number</label> <input class="span3" field="FAX_AREA" id="idFaxArea" maxlength="4" name="idFaxArea" separator="" type="text" typedata="string" validate="number|maxlength:5" validatemessage="Fax Area Should be filled by number|Maximum Fax Area length is 5" /> - <input class="span5" field="FAX_NUMBER" id="idFaxNumber" maxlength="8" name="idFaxNumber" separator="" type="text" typedata="string" validate="number|maxlength:10" validatemessage="Fax Number Should be filled by number|Maximum Fax Number length is 10" /></div>
+							<div class="control-group span4">
+								<label class="control-label">Area</label>
+								<div class="controls input-append">
+									<input class="span8" field="AREA_NAME" id="idAreaName" name="idAreaName" readonly="readonly" type="text" typedata="string" /><button class="btn LOOKUP" id="btnArea" name="btnArea" type="button"><span class="icon-search"/></button></div>
+								<div ds="P_LOOKAREA" event_attach="#btnArea" event_set="" function="LOOKUP" height="500" id="dialogArea" name="dialogArea" selection_maping="#idArea:AREA_ID,#idAreaName:AREA_NAME" show_checkbox="0" title="Search Area" width="1000">
+									&nbsp;</div>
+								<input class="span3" desc="Area" field="AREA_ID" id="idArea" name="idArea" readonly="readonly" type="hidden" typedata="string" /></div>
+							<div class="control-group span4">
+								<label class="control-label">District Court</label> <input class="span8" field="" id="idDistrictCourt" name="idDistrictCourt" type="text" typedata="string" /></div>
+							<div class="control-group span4">
+								<label class="control-label">Nomor SK</label><input class="span8" field="NOMORSK" id="idNomorSK" name="idNomorSK" type="text" typedata="string" validate="required" validatemessage="Nomor SK is required"/></div>
+							<div class="control-group span4"><label class="span5">Tanggal SK</label><input class="span8" field="TANGGALSK" format="d-M-yy" id="idTanggalSK" name="idTanggalSK" placeholder="" type="text" typedata="date" validate="required" validatemessage="Field Tanggal Lahir harus di isi" /></div>
+						</div>
+						<h3>
+							Calendar</h3>
+						<div class="row-fluid" id="Calendar">
+							<div class="btn-group pull-left">
+								<button action="" class="btn SAVE" id="idbtnAddCal" name="idbtnAddCal" type="button" value="Save"><span class="icon-hdd"/>Add</button><button action="DELETE" action_attribute="component_id:divGridViewSurveyor;datascheme_id:P_BK_BRN_CL;is_save_onclick:0;after_callback_params:gridview_id=divGridViewSurveyor;function_after_callback:after_delete_offline;cascade_delete:" class="btn DELETE" desc="Delete Surveyor" id="idbtnDelete" name="idbtnDelete" type="button" value="Delete"><span class="icon-remove-sign"/>Delete</button></div>
+							<div>
+								<div action_click="Ok:getCheckbox:0:SAVE,Cancel::1" event_attach="#idbtnAddCal" event_set="PKEY=#CALENDAR_ID;FKEY=;PKEY1=#CALENDAR_ID;PKEY2=;PKEY3=;PKEY4=;EXTENDEDPARAM=" function="DIALOG" gridview_id="divGridView" height="500" id="dialogCalender" pageid="UIP_BRANCHCAL" title="Input Calender" width="600">
+									&nbsp;</div>
+							</div>
+							<div action_click="View:__OPEN_DIALOG_OFFLINE:VIEW:dialogAddress:divGridView:CALENDAR_ID,Edit:__OPEN_DIALOG_OFFLINE:EDIT:dialogAddress:divGridView:CALENDAR_ID:EDIT" auto_search="1" class="test" column_align="left,left" column_fields="CALENDAR_ID,HIDE_CALENDAR_NAME" column_format="," column_names="Calendar ID,Calendar Name" ds="P_BK_BRN_CL" event_attach="" fields="CALENDAR_ID,HIDE_CALENDAR_NAME" function="GRIDVIEW_OFFLINE" function_callback_after="" function_callback_before="" id="divGridView" name="divGridView" show_checkbox="1" show_option="0" sort_columns="CALENDAR_ID">
+								&nbsp;</div>
+						</div>
+						<h3>
+							Jam Kerja</h3>
+						<div class="row-fluid" id="jamKerja">
+							<div class="control-groups span4">
+								<label class="control-label">Hari Senin</label><input class="span2" field="MONDAY_START_HOUR" id="idMondayStart" name="idMondayStart" type="text" typedata="string" validate="validateMondayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="MONDAY_END_HOUR" id="idMondayEnd" name="idMondayEnd" type="text" typedata="string" validate="validateMondayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Hari Selasa</label><input class="span2" field="TUESDAY_START_HOUR" id="idTuesdayStart" name="idTuesdayStart" type="text" typedata="string" validate="validateTuesdayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="TUESDAY_END_HOUR" id="idTuesdayEnd" name="idTuesdayEnd" type="text" typedata="string" validate="validateTuesdayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Hari Rabu</label><input class="span2" field="WEDNESDAY_START_HOUR" id="idWednesdayStart" name="idWednesdayStart" type="text" typedata="string" validate="validateWednesdayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="WEDNESDAY_END_HOUR" id="idWednesdayEnd" name="idWednesdayEnd" type="text" typedata="string" validate="validateWednesdayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Hari Kamis</label><input class="span2" field="THURSDAY_START_HOUR" id="idThursdayStart" name="idThursdayStart" type="text" typedata="string" validate="validateThursdayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="THURSDAY_END_HOUR" id="idThursdayEnd" name="idThursdayEnd" type="text" typedata="string" validate="validateThursdayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Hari Jumat</label><input class="span2" field="FRIDAY_START_HOUR" id="idFridayStart" name="idFridayStart" type="text" typedata="string" validate="validateFridayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="FRIDAY_END_HOUR" id="idFridayEnd" name="idFridayEnd" type="text" typedata="string" validate="validateFridayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Hari Sabtu</label><input class="span2" field="SATURDAY_START_HOUR" id="idSaturdayStart" name="idSaturdayStart" type="text" typedata="string" validate="validateSaturdayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="SATURDAY_END_HOUR" id="idSaturdayEnd" name="idSaturdayEnd" type="text" typedata="string" validate="validateSaturdayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<div class="control-groups span4">
+								<label class="control-label">Hari Minggu</label><input class="span2" field="SUNDAY_START_HOUR" id="idSundayStart" name="idSundayStart" type="text" typedata="string" validate="validateSundayStart" validatemessage="Jam Masuk Harus Lebih Kecil dari Jam Keluar" /> - <input class="span2" field="SUNDAY_END_HOUR" id="idSundayEnd" name="idSundayEnd" type="text" typedata="string" validate="validateSundayEnd" validatemessage="Jam Keluar Harus Lebih Besar dari Jam Masuk" /></div>
+							<input class="span1" field="BRANCH_DATE" id="idBranchDate" name="idBranchDate" readonly="readonly" type="hidden" typedata="string" /> <input class="span1" field="CREATE_DATE" id="idCreateDate" name="idCreateDate" readonly="readonly" type="hidden" typedata="string" /> <input class="span1" field="CREATOR_ID" id="idCreatorId" name="idCreatorId" readonly="readonly" type="hidden" typedata="string" /> <input class="span1" field="LAST_UPDATE" id="idLastUpdate" name="idLastUpdate" readonly="readonly" type="hidden" typedata="string" /> <input class="span1" field="LAST_USER_ID" id="idLastUser" name="idLastUser" readonly="readonly" type="hidden" typedata="string" /> <input class="span1" field="STATUS" id="idStatus" name="idStatus" readonly="readonly" type="hidden" typedata="string" /><input class="span1" field="BRANCH_ID_DATE" id="idBranchIdDate" name="idBranchIdDate" readonly="readonly" type="hidden" typedata="string" /></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
