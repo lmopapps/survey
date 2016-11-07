@@ -1,0 +1,42 @@
+<html pageid="UIPNY_APPLICATION_WL">
+	<head>
+		<title></title>
+		<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+	</head>
+	<body>
+		<div dataschemeid="DSPNY_TX_APPLICATION;;;;;;;;;;" function="PAGE" pageid="UIDSPNY_TX_APPLICATION_WL">
+			<form method="post" name="formAppList">
+				<!-- <h1>List Pengajuan Aplikasi</h1> -->
+				<div class="row-fluid box-c1">
+					<div class="control-group span4">
+						<label class="control-label">Nama Nasabah</label>
+						<div class="controls">
+							<input autocomplete_json="ds:DSPNY_TX_APPLICATION;pkey1:;pkey2:this;pkey3:;pkey4:;extendedparam:,;fields:APPL_NO,APPLICANT_NAME;label_format:([APPL_NO]) - [APPLICANT_NAME];value_field:APPL_NO,APPLICANT_NAME;result:#idApplicantName=APPLICANT_NAME;" 
+							class="span9" id="idApplicantName" name="idApplicantName" placeholder="Type for Autocomplete" type="text" />
+						</div>
+					</div>
+			
+				</div>
+				<div class="btn-group">
+					<button class="btn SEARCH" id="idBtnSearch" type="button"><span class="icon-search"/>Search</button>
+					<button class="btn RESET" id="idBtnReset" type="reset"><span class="icon-repeat"/>Reset</button>
+					<button class="btn ADD" id="idBtnAdd" type="button" action="ADD" 
+					action_attribute="page_id_add:UIPNY_TX_APPLICATION_UPL" ><span class="icon-plus-sign"/>Import</button>
+					<button class="btn DELETE" id="idBtnDelete" type="button" action="DELETE" 
+						action_attribute="component_id:divGridView;datascheme_id:DSPNY_TX_APPLICATION;is_save_onclick:1;after_callback_params:postback_button=#idBtnSearch;function_after_callback:__AFTER_DELETE;cascade_delete:">
+						<span class="icon-remove-sign"/>Delete
+					</button>
+				</div>
+				<div class="row-fluid box-c1">
+					<div action_variable_set="View:PAGE_ID=UIPNY_TX_APPLICATION_UPL;PKEY1=.APPL_ID;PKEY2=;PKEY3=;PKEY4=;EXTENDEDPARAM=;MODE=VIEW|Edit:PAGE_ID=UIPNY_TX_APPLICATION_UPL;PKEY1=.APPL_ID;PKEY2=;PKEY3=;PKEY4=;EXTENDEDPARAM=;MODE=EDIT;OPERATIONAL_CLASS=EDIT" class="test" 
+					column_align="left,left,left" column_fields="APPLICANT_NAME,CLIENT_NAME,APPL_NO,RECORD_STATUS_DESC" 
+					column_format="" column_names="Nama Nasabah,Nama Client,No. Aplikasi,Status" ds="DSPNY_TX_APPLICATION" 
+					event_attach="#idBtnSearch" extendedparam="" fields="APPL_ID,APPLICANT_NAME,CLIENT_NAME,APPL_NO,RECORD_STATUS_DESC" 
+					function="GRIDVIEW" id="divGridView" name="divGridView" page_size="15" pkey1="" pkey2="#idApplicantName" pkey3="#idApplicantName" pkey4="" 
+					show_checkbox="1" show_option="0" sort_columns="CLIENT_CODE">
+						&nbsp;</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

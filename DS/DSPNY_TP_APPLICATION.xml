@@ -1,0 +1,45 @@
+<root dsid="DSPNY_TP_APPLICATION">
+<table name="PNY_TP_APPLICATION" connid="cn1">
+	<field fieldname="ROW_ITEM_ID" fieldtype="NUMBER" fieldview="ROW_ITEM_ID"/>
+	<field fieldname="UPLOAD_ID" fieldtype="NUMBER" fieldview="UPLOAD_ID"/>
+	<field fieldname="RAW_DATA" fieldtype="VARCHAR2" fieldview="RAW_DATA"/>
+	<field fieldname="ID_NO" fieldtype="VARCHAR2" fieldview="ID_NO"/>
+	<field fieldname="NAME1" fieldtype="VARCHAR2" fieldview="NAME1"/>
+	<field fieldname="ADDRESS1" fieldtype="VARCHAR2" fieldview="ADDRESS1"/>
+	<field fieldname="RT1" fieldtype="VARCHAR2" fieldview="RT1"/>
+	<field fieldname="RW1" fieldtype="VARCHAR2" fieldview="RW1"/>
+	<field fieldname="CITY1" fieldtype="VARCHAR2" fieldview="CITY1"/>
+	<field fieldname="POSTAL_CODE1" fieldtype="VARCHAR2" fieldview="POSTAL_CODE1"/>
+	<field fieldname="PHONE_CODE1" fieldtype="VARCHAR2" fieldview="PHONE_CODE1"/>
+	<field fieldname="PHONE_NO1" fieldtype="VARCHAR2" fieldview="PHONE_NO1"/>
+	<field fieldname="SIL_STATUS1" fieldtype="VARCHAR2" fieldview="SIL_STATUS1"/>
+	<field fieldname="URG_STATUS1" fieldtype="VARCHAR2" fieldview="URG_STATUS1"/>
+	<field fieldname="ULG_STATUS1" fieldtype="VARCHAR2" fieldview="ULG_STATUS1"/>
+	<field fieldname="NAME2" fieldtype="VARCHAR2" fieldview="NAME2"/>
+	<field fieldname="ADDRESS2" fieldtype="VARCHAR2" fieldview="ADDRESS2"/>
+	<field fieldname="RT2" fieldtype="VARCHAR2" fieldview="RT2"/>
+	<field fieldname="RW2" fieldtype="VARCHAR2" fieldview="RW2"/>
+	<field fieldname="CITY2" fieldtype="VARCHAR2" fieldview="CITY2"/>
+	<field fieldname="OWNER_NAME" fieldtype="VARCHAR2" fieldview="OWNER_NAME"/>
+	<field fieldname="BUSINESS_TYPE" fieldtype="VARCHAR2" fieldview="BUSINESS_TYPE"/>
+	<field fieldname="POSTAL_CODE2" fieldtype="VARCHAR2" fieldview="POSTAL_CODE2"/>
+	<field fieldname="PHONE_CODE2" fieldtype="VARCHAR2" fieldview="PHONE_CODE2"/>
+	<field fieldname="PHONE_NO2" fieldtype="VARCHAR2" fieldview="PHONE_NO2"/>
+	<field fieldname="SIL_STATUS2" fieldtype="VARCHAR2" fieldview="SIL_STATUS2"/>
+	<field fieldname="URG_STATUS2" fieldtype="VARCHAR2" fieldview="URG_STATUS2"/>
+	<field fieldname="ULG_STATUS2" fieldtype="VARCHAR2" fieldview="ULG_STATUS2"/>
+	<field fieldname="CREATED_BY" fieldtype="VARCHAR2" fieldview="CREATED_BY"/>
+	<field fieldname="CREATED_ON" fieldtype="DATE" fieldview="CREATED_ON"/>
+	
+	<pkey id="1" fieldname="ROW_ITEM_ID" fieldtype="NUMBER" fieldview="ROW_ITEM_ID"/>
+	<pkey id="2" fieldname="UPLOAD_ID" fieldtype="NUMBER" fieldview="UPLOAD_ID"/>
+</table>
+<!-- <table name="DUMMY" connid="cn1" viewonly="true">
+	<field fieldname="RECORD_STATUS_DESC" fieldtype="VARCHAR2" fieldview="RECORD_STATUS_DESC"/>
+</table -->>
+
+<select>
+SELECT MD.*
+FROM PNY_TP_APPLICATION MD ORDER BY UPLOAD_ID, ROW_ITEM_ID
+</select>
+</root>

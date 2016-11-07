@@ -1,0 +1,30 @@
+<html pageid="UIPNY_TX_APPLICATION_UPL">
+	<head>
+		<title></title>
+		<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+	</head>
+	<body>
+		<div function="PAGE" pageid="UIPNY_TX_APPLICATION_UPL" script_page="afterLoad_UIPNY_TX_APPLICATION_UPL">
+			<!-- <h1>Upload Pengajuan Aplikasi</h1> -->
+			<form name="formAppUpload" method="POST" enctype="multipart/form-data">			
+				<div class="row-fluid box-c2">
+					<div class="control-groups span12">
+						<label class="control-labels span3">Tanggal Terima</label> 
+						<input desc="Tanggal Terima" field="ACCEPT_DATE" id="idAcceptDate" name="idAcceptDate" type="text" typedata="date" format="dd/mm/yy" 
+						validate="required" validatemessage="Tanggal terima harus diisi" />
+					</div>
+															
+					<div class="control-group span12">
+						<label class="control-labels span3">Pilih File</label> 
+						<input id="idUploadFile" name="idUploadFile" type="file"/>
+					</div>
+				</div>
+					
+				<div class="btn-group pull-right">
+					<button class="btn ADD" id="idBtnUpload" type="submit" value="Submit"><span class="icon-plus-sign"/>Upload</button>
+					<button class="btn RESET" id="idBtnReset" type="reset" value="Reset"><span class="icon-repeat"/>Reset</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<root dsid="DSPNY_TX_UPLOAD">
+<table name="PNY_TX_UPLOAD" connid="cn1">
+	<field fieldname="UPLOAD_ID" fieldtype="NUMBER" fieldview="UPLOAD_ID"/>
+	<field fieldname="PROCESS_START_ON" fieldtype="DATE" fieldview="PROCESS_START_ON"/>
+	<field fieldname="PROCESS_END_ON" fieldtype="DATE" fieldview="PROCESS_END_ON"/>
+	
+	<field fieldname="UPLOAD_DATE" fieldtype="DATE" fieldview="UPLOAD_DATE"/>
+	<field fieldname="UPLOAD_FORMAT_ID" fieldtype="NUMBER" fieldview="UPLOAD_FORMAT_ID"/>
+	<field fieldname="UPLOAD_FILE_NAME" fieldtype="VARCHAR2" fieldview="UPLOAD_FILE_NAME"/>
+	<field fieldname="UPLOAD_FILE_LOCATION" fieldtype="VARCHAR2" fieldview="UPLOAD_FILE_LOCATION"/>
+	<field fieldname="UPLOAD_FILE_HASH" fieldtype="VARCHAR2" fieldview="UPLOAD_FILE_HASH"/>
+	
+	<field fieldname="PROCESS_STATUS_CODE" fieldtype="VARCHAR2" fieldview="PROCESS_STATUS_CODE"/>
+	
+	<field fieldname="UPLOAD_START_ON" fieldtype="DATE" fieldview="UPLOAD_START_ON"/>
+	<field fieldname="UPLOAD_END_ON" fieldtype="DATE" fieldview="UPLOAD_END_ON"/>
+	<field fieldname="TOTAL_DATA" fieldtype="NUMBER" fieldview="TOTAL_DATA"/>
+	<field fieldname="PASS_DATA" fieldtype="NUMBER" fieldview="PASS_DATA"/>
+	<field fieldname="FAIL_DATA" fieldtype="NUMBER" fieldview="FAIL_DATA"/>
+	
+	
+	<field fieldname="CREATED_BY" fieldtype="VARCHAR2" fieldview="CREATED_BY"/>
+	<field fieldname="CREATED_ON" fieldtype="DATE" fieldview="CREATED_ON"/>
+	<field fieldname="MODIFIED_BY" fieldtype="VARCHAR2" fieldview="MODIFIED_BY"/>
+	<field fieldname="MODIFIED_ON" fieldtype="DATE" fieldview="MODIFIED_ON"/>
+		
+	<pkey id="1" fieldname="UPLOAD_ID" fieldtype="NUMBER" fieldview="UPLOAD_ID" seq="PNY_TX_UPLOAD_SEQ"/>
+</table>
+
+<!-- <table name="DUMMY" connid="cn1" viewonly="true">
+	
+</table> -->
+
+<select>
+SELECT 	TX.*
+FROM PNY_TX_UPLOAD TX ORDER BY UPLOAD_ID
+</select>
+</root>

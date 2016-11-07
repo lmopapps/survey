@@ -1,0 +1,32 @@
+<root dsid="DSPNY_MD_CLIENT">
+<table name="PNY_MD_CLIENT" connid="cn1">
+	<field fieldname="CLIENT_ID" fieldtype="NUMBER" fieldview="CLIENT_ID"/>
+	<field fieldname="CLIENT_CODE" fieldtype="VARCHAR2" fieldview="CLIENT_CODE"/>
+	<field fieldname="CLIENT_NAME" fieldtype="VARCHAR2" fieldview="CLIENT_NAME"/>
+	<field fieldname="EMAIL" fieldtype="VARCHAR2" fieldview="EMAIL"/>
+	<field fieldname="RECORD_STATUS" fieldtype="VARCHAR2" fieldview="RECORD_STATUS"/>
+	<field fieldname="CREATED_BY" fieldtype="VARCHAR2" fieldview="CREATED_BY"/>
+	<field fieldname="CREATED_ON" fieldtype="DATE" fieldview="CREATED_ON"/>
+	<field fieldname="MODIFIED_BY" fieldtype="VARCHAR2" fieldview="MODIFIED_BY"/>
+	<field fieldname="MODIFIED_ON" fieldtype="DATE" fieldview="MODIFIED_ON"/>
+	
+	<pkey id="1" fieldname="CLIENT_ID" fieldtype="NUMBER" fieldview="CLIENT_ID" seq="PNY_MD_CLIENT_SEQ"/>
+</table>
+<table name="DUMMY" connid="cn1" viewonly="true">
+	<field fieldname="RECORD_STATUS_DESC" fieldtype="VARCHAR2" fieldview="RECORD_STATUS_DESC"/>
+</table>
+
+<select>
+SELECT 	CLIENT_ID,
+	CLIENT_CODE,
+	CLIENT_NAME, 
+	EMAIL,
+	RECORD_STATUS,
+	CREATED_BY, 
+	CREATED_ON, 
+	MODIFIED_BY, 
+	MODIFIED_ON,
+	(SELECT CASE RECORD_STATUS WHEN 'A' THEN 'Aktif' WHEN 'D' THEN 'Tidak' END) AS RECORD_STATUS_DESC
+FROM PNY_MD_CLIENT ORDER BY CLIENT_ID
+</select>
+</root>

@@ -1,0 +1,32 @@
+<root dsid="DSPNY_TX_APPLICATION">
+<table name="PNY_TX_APPLICATION" connid="cn1">
+	<field fieldname="APPL_ID" fieldtype="NUMBER" fieldview="APPL_ID"/>
+	<field fieldname="ACCEPT_DATE" fieldtype="DATE" fieldview="ACCEPT_DATE"/>
+	<field fieldname="CLIENT_ID" fieldtype="NUMBER" fieldview="CLIENT_ID"/>
+	<field fieldname="APPL_NO" fieldtype="VARCHAR2" fieldview="APPL_NO"/>
+	<field fieldname="APPLICANT_NAME" fieldtype="VARCHAR2" fieldview="APPLICANT_NAME"/>
+	<field fieldname="CARD_ID_NO" fieldtype="VARCHAR2" fieldview="CARD_ID_NO"/>
+	<field fieldname="PRODUCT_TYPE" fieldtype="VARCHAR2" fieldview="PRODUCT_TYPE"/>
+	<field fieldname="SURVEY_TYPE" fieldtype="VARCHAR2" fieldview="SURVEY_TYPE"/>
+	<field fieldname="UPLOAD_ID" fieldtype="NUMBER" fieldview="UPLOAD_ID"/>
+	<field fieldname="DELIVER_DATE" fieldtype="DATE" fieldview="DELIVER_DATE"/>
+	<field fieldname="RECORD_STATUS" fieldtype="VARCHAR2" fieldview="RECORD_STATUS"/>
+	<field fieldname="CREATED_BY" fieldtype="VARCHAR2" fieldview="CREATED_BY"/>
+	<field fieldname="CREATED_ON" fieldtype="DATE" fieldview="CREATED_ON"/>
+	<field fieldname="MODIFIED_BY" fieldtype="VARCHAR2" fieldview="MODIFIED_BY"/>
+	<field fieldname="MODIFIED_ON" fieldtype="DATE" fieldview="MODIFIED_ON"/>
+	
+	<pkey id="1" fieldname="APPL_ID" fieldtype="NUMBER" fieldview="APPL_ID" seq="PNY_TX_APPLICATION_SEQ"/>
+</table>
+<table name="DUMMY" connid="cn1" viewonly="true">
+	<field fieldname="RECORD_STATUS_DESC" fieldtype="VARCHAR2" fieldview="RECORD_STATUS_DESC"/>
+	<field fieldname="CLIENT_NAME" fieldtype="VARCHAR2" fieldview="CLIENT_NAME"/>
+</table>
+
+<select>
+SELECT 	TX.*,
+	(SELECT CASE RECORD_STATUS WHEN 'A' THEN 'Aktif' WHEN 'D' THEN 'Tidak' END) AS RECORD_STATUS_DESC,
+	(SELECT CLIENT_NAME FROM PNY_MD_CLIENT WHERE CLIENT_ID = TX.CLIENT_ID) AS CLIENT_NAME
+FROM PNY_TX_APPLICATION TX ORDER BY APPL_ID
+</select>
+</root>

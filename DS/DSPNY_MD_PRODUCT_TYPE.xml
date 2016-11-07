@@ -1,0 +1,30 @@
+<root dsid="DSPNY_MD_PRODUCT_TYPE">
+<table name="PNY_MD_PRODUCT_TYPE" connid="cn1">
+	<field fieldname="PRODUCT_ID" fieldtype="NUMBER" fieldview="PRODUCT_ID"/>
+	<field fieldname="PRODUCT_CODE" fieldtype="VARCHAR2" fieldview="PRODUCT_CODE"/>
+	<field fieldname="PRODUCT_NAME" fieldtype="VARCHAR2" fieldview="PRODUCT_NAME"/>
+	<field fieldname="RECORD_STATUS" fieldtype="VARCHAR2" fieldview="RECORD_STATUS"/>
+	<field fieldname="CREATOR_ID" fieldtype="VARCHAR2" fieldview="CREATOR_ID"/>
+	<field fieldname="CREATED_DATE" fieldtype="DATE" fieldview="CREATED_DATE"/>
+	<field fieldname="LAST_USER_ID" fieldtype="VARCHAR2" fieldview="LAST_USER_ID"/>
+	<field fieldname="LAST_UPDATE" fieldtype="DATE" fieldview="LAST_UPDATE"/>
+	
+	<pkey id="1" fieldname="PRODUCT_ID" fieldtype="NUMBER" fieldview="PRODUCT_ID" seq="PNY_MD_PRODUCT_TYPE_SEQ"/>
+</table>
+<table name="DUMMY" connid="cn1" viewonly="true">
+	<field fieldname="RECORD_STATUS_DESC" fieldtype="VARCHAR2" fieldview="RECORD_STATUS_DESC"/>
+</table>
+
+<select>
+SELECT 	PRODUCT_ID,
+	PRODUCT_CODE,
+	PRODUCT_NAME, 
+	RECORD_STATUS,
+	CREATOR_ID, 
+	CREATED_DATE, 
+	LAST_USER_ID, 
+	LAST_UPDATE,
+	(SELECT CASE RECORD_STATUS WHEN 'A' THEN 'Aktif' WHEN 'D' THEN 'Tidak' END) AS RECORD_STATUS_DESC
+FROM PNY_MD_PRODUCT_TYPE ORDER BY PRODUCT_ID
+</select>
+</root>

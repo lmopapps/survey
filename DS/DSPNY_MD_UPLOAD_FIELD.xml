@@ -1,0 +1,26 @@
+<root dsid="DSPNY_MD_UPLOAD_FIELD">
+<table name="PNY_MD_UPLOAD_FIELD" connid="cn1">
+	<field fieldname="FIELD_ID" fieldtype="NUMBER" fieldview="FIELD_ID"/>
+	<field fieldname="UPLOAD_FORMAT_ID" fieldtype="NUMBER" fieldview="UPLOAD_FORMAT_ID"/>
+	<field fieldname="FIELD_POSITION" fieldtype="NUMBER" fieldview="FIELD_POSITION"/>
+	<field fieldname="FIELD_NAME" fieldtype="VARCHAR2" fieldview="FIELD_NAME"/>
+	<field fieldname="FIELD_DESC" fieldtype="VARCHAR2" fieldview="FIELD_DESC"/>
+	<field fieldname="FIELD_TYPE" fieldtype="VARCHAR2" fieldview="FIELD_TYPE"/>
+	<field fieldname="DESTINATION_COLUMN" fieldtype="VARCHAR2" fieldview="DESTINATION_COLUMN"/>
+	<field fieldname="VAL_IS_REQUIRED" fieldtype="VARCHAR2" fieldview="VAL_IS_REQUIRED"/>
+	<field fieldname="VAL_MIN_LENGTH" fieldtype="NUMBER" fieldview="VAL_MIN_LENGTH"/>
+	<field fieldname="VAL_MAX_LENGTH" fieldtype="NUMBER" fieldview="VAL_MAX_LENGTH"/>
+	<field fieldname="VAL_MIN_NUMBER" fieldtype="DOUBLE" fieldview="VAL_MIN_NUMBER"/>
+	<field fieldname="VAL_MAX_NUMBER" fieldtype="DOUBLE" fieldview="VAL_MAX_NUMBER"/>	
+	
+	<pkey id="1" fieldname="FIELD_ID" fieldtype="NUMBER" fieldview="FIELD_ID" seq="PNY_MD_UPLOAD_FIELD_SEQ"/>
+</table>
+<!-- <table name="DUMMY" connid="cn1" viewonly="true">
+	<field fieldname="RECORD_STATUS_DESC" fieldtype="VARCHAR2" fieldview="RECORD_STATUS_DESC"/>
+</table -->>
+
+<select>
+SELECT MD.*
+FROM PNY_MD_UPLOAD_FIELD MD ORDER BY FIELD_ID
+</select>
+</root>

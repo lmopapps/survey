@@ -1,0 +1,28 @@
+<root dsid="DSPNY_MD_UPL_FILE_FORMAT">
+<table name="PNY_MD_UPLOAD_FILE_FORMAT" connid="cn1">
+	<field fieldname="UPLOAD_FORMAT_ID" fieldtype="NUMBER" fieldview="UPLOAD_FORMAT_ID"/>
+	<field fieldname="UPLOAD_TYPE_CODE" fieldtype="VARCHAR2" fieldview="UPLOAD_TYPE_CODE"/>
+	<field fieldname="UPLOAD_DESC" fieldtype="VARCHAR2" fieldview="UPLOAD_DESC"/>
+	<field fieldname="DESTINATION_TABLE" fieldtype="VARCHAR2" fieldview="DESTINATION_TABLE"/>
+	<field fieldname="DELIMITER_CHAR" fieldtype="VARCHAR2" fieldview="DELIMITER_CHAR"/>
+	<field fieldname="FILE_PREFIX" fieldtype="VARCHAR2" fieldview="FILE_PREFIX"/>
+	<field fieldname="FILE_LOCATION" fieldtype="VARCHAR2" fieldview="FILE_LOCATION"/>
+	<field fieldname="FILE_EXTENSION" fieldtype="VARCHAR2" fieldview="FILE_EXTENSION"/>
+	<field fieldname="RECORD_STATUS" fieldtype="VARCHAR2" fieldview="RECORD_STATUS"/>
+	<field fieldname="CREATED_BY" fieldtype="VARCHAR2" fieldview="CREATED_BY"/>
+	<field fieldname="CREATED_ON" fieldtype="DATE" fieldview="CREATED_ON"/>
+	<field fieldname="MODIFIED_BY" fieldtype="VARCHAR2" fieldview="MODIFIED_BY"/>
+	<field fieldname="MODIFIED_ON" fieldtype="DATE" fieldview="MODIFIED_ON"/>
+		
+	<pkey id="1" fieldname="UPLOAD_FORMAT_ID" fieldtype="NUMBER" fieldview="UPLOAD_FORMAT_ID" seq="PPNY_MD_UPLOAD_FILE_FORMAT_SEQ"/>
+</table>
+
+<!-- <table name="DUMMY" connid="cn1" viewonly="true">
+	
+</table> -->
+
+<select>
+SELECT 	TX.*
+FROM PNY_MD_UPLOAD_FILE_FORMAT TX ORDER BY UPLOAD_FORMAT_ID
+</select>
+</root>
