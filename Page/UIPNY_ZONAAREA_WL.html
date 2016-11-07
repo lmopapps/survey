@@ -1,0 +1,96 @@
+<html pageid="UIPNY_ZONAAREA_WL">
+<head>
+<title></title>
+<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+</head>
+<body>
+<div dataschemeid="DSPNY_ZONAAREA;;;;;;;;;;" function="PAGE" pageid="UIPNY_ZONAAREA_WL">
+  <form method="post" name="frmInsFee">
+    <h1>Zona Area Worklist</h1>
+    <div class="row-fluid box-c1">
+      <div class="control-group span4">
+        <label class="control-labels">Kode Cabang</label>
+        <input 
+			autocomplete_json="ds:DSPNY_ZONAAREA;pkey1:;pkey2:this;pkey3:;pkey4:;extendedparam:,;fields:BRANCH_CODE;label_format:[BRANCH_CODE];value_field:BRANCH_CODE;result:#idKodeCabang=BRANCH_CODE;min_length:1;" 
+			class="span6" 
+			id="idKodeCabang" 
+			name="idKodeCabang" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>   
+		<div class="control-group span4">
+        <label class="control-labels">Nama Cabang</label>
+        <input 
+			autocomplete_json="ds:DSPNY_ZONAAREA;pkey1:;pkey2:;pkey3:this;pkey4:;extendedparam:,;fields:BRANCH_NAME;label_format:[BRANCH_NAME];value_field:BRANCH_NAME;result:#idNamaCabang=BRANCH_NAME;min_length:1;" 
+			class="span6" 
+			id="idNamaCabang" 
+			name="idNamaCabang" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>		 
+	<div class="control-group span4">
+        <label class="control-labels">Zona</label>
+        <input 
+			autocomplete_json="ds:DSPNY_ZONAAREA;pkey1:;pkey2:;pkey3:this;pkey4:;extendedparam:,;fields:ZONA;label_format:[ZONA];value_field:ZONA;result:#idZona=ZONA;min_length:1;" 
+			class="span6" 
+			id="idZona" 
+			name="idZona" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>
+	  		<div class="control-group span4">
+        <label class="control-labels">Area</label>
+        <input 
+			autocomplete_json="ds:DSPNY_ZONAAREA;pkey1:;pkey2:;pkey3:this;pkey4:;extendedparam:,;fields:AREA;label_format:[AREA];value_field:AREA;result:#idArea=AREA;min_length:1;" 
+			class="span6" 
+			id="idArea" 
+			name="idArea" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button action="ADD" action_attribute="page_id_add:UIPNY_ZONAAREA_IN" class="btn ADD" id="idBtnAdd" type="button"><span class="icon-plus-sign"/>Add</button>
+	  <button class="btn SEARCH" id="idBtnSearch" type="button"><span class="icon-search"/>Search</button>
+      <button class="btn RESET" id="btnReset" type="reset"><span class="icon-repeat"/>Reset</button>
+	  <button action="DELETE" action_attribute="component_id:divGridViewZonaArea;datascheme_id:DSPNY_ZONAAREA;is_save_onclick:1;after_callback_params:postback_button=#idBtnSearch;function_after_callback:__AFTER_DELETE" 
+	  class="btn DELETE" 
+	  id="btnDelete" 
+	  name="Input" 
+	  value="Delete">
+		<span class="icon-remove-sign"/>Delete
+	  </button>
+    </div>
+    <div class="row-fluid box-c1">
+		<div 
+			action_variable_set="View:PAGE_ID=UIPNY_ZONAAREA_IN;PKEY1=.ZONA_AREA_ID;PKEY2=.BRANCH_ID;PKEY3=.ZONA;PKEY4=.KECAMATAN;EXTENDEDPARAM=;MODE=VIEW|Edit:PAGE_ID=UIPNY_ZONAAREA_IN;PKEY1=.ZONA_AREA_ID;PKEY2=.BRANCH_ID;PKEY3=.ZONA;PKEY4=.KECAMATAN;EXTENDEDPARAM=;MODE=EDIT;OPERATIONAL_CLASS=EDIT" 
+			class="test" 
+			column_align=",," 
+			column_fields="BRANCH_NAME,ZONA,KECAMATAN,KELURAHAN,POSTAL_CODE,AREA,RECORD_STATUS_DESC"
+			column_format="" 
+			column_names="Nama Cabang,Zona,Kecamatan,Kelurahan,Postal Code,Area,Status"
+			ds="DSPNY_ZONAAREA" 
+			event_attach="#idBtnSearch" 
+			extendedparam="" 
+			fields="ZONA_AREA_ID,BRANCH_ID,ZONA,KECAMATAN,KELURAHAN,POSTAL_CODE,AREA,RECORD_STATUS,CREATED_BY,CREATED_ON,MODIFIED_BY,MODIFIED_ON,RECORD_STATUS_DESC,BRANCH_NAME"
+			function="GRIDVIEW" 
+			id="divGridViewZonaArea" 
+			name="divGridViewZonaArea" 
+			page_size="10" 
+			pkey1="" 
+			pkey2="" 
+			pkey3="" 
+			pkey4="" 
+			show_checkbox="1" 
+			show_option="0" 
+			sort_columns="BRANCH_NAME,ZONA,KECAMATAN,KELURAHAN,POSTAL_CODE,AREA,RECORD_STATUS_DESC">
+		</div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

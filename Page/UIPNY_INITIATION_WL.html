@@ -1,0 +1,98 @@
+<html pageid="UIPNY_INITIATION_WL">
+<head>
+<title></title>
+<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+</head>
+<body>
+<div dataschemeid="DSPNY_INITIATION;;;;;;;;;;" function="PAGE" pageid="UIPNY_INITIATION_WL">
+  <form method="post" name="frmInsFee">
+    <h1>Initiation Worklist</h1>
+    <div class="row-fluid box-c1">
+      <div class="control-group span4">
+        <label class="control-labels">Debitur Name</label>
+        <input 
+			autocomplete_json="ds:DSPNY_INITIATION;pkey1:this;pkey2:;pkey3:;pkey4:;extendedparam:,;fields:APPLICANT_NAME;label_format:[APPLICANT_NAME];value_field:APPLICANT_NAME;result:#idNamaNasabah=APPLICANT_NAME;min_length:1;" 
+			class="span6" 
+			id="idNamaNasabah" 
+			name="idNamaNasabah" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>   
+		<div class="control-group span4">
+        <label class="control-labels">Client Name</label>
+        <input 
+			autocomplete_json="ds:DSPNY_INITIATION;pkey1:;pkey2:this;pkey3:;pkey4:;extendedparam:,;fields:CLIENT_NAME;label_format:[CLIENT_NAME];value_field:CLIENT_NAME;result:#idNamaClient=CLIENT_NAME;min_length:1;" 
+			class="span6" 
+			id="idNamaClient" 
+			name="idNamaClient" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>   
+	<div class="control-group span4">
+        <label class="control-labels">Application Name</label>
+        <input 
+			autocomplete_json="ds:DSPNY_INITIATION;pkey1:;pkey2:;pkey3:this;pkey4:;extendedparam:,;fields:APPL_NO;label_format:[APPL_NO];value_field:APPL_NO;result:#idAppNo=APPL_NO;min_length:1;" 
+			class="span6" 
+			id="idAppNo" 
+			name="idAppNo" 
+			placeholder="Type for Autocomplete" 
+			type="text" 
+		/>
+      </div>   
+	  <div class="control-groups span4">
+			<label class="control-labels">Status</label>
+			<select 
+				class="span6" 
+				id="idStatus" 
+				name="idStatus" 
+				parameter="PNY_APPL_STATUS" 
+				placeholder="" 
+				type="text"
+				typedata="string">
+			</select>
+	  </div>	  
+    </div>
+    <div class="btn-group">
+      <button action="ADD" action_attribute="page_id_add:UIPNY_INITIATION_IN" class="btn ADD" id="idBtnAdd" type="button"><span class="icon-plus-sign"/>Add</button>
+	   <button action="ADD" action_attribute="page_id_add:UIPNY_IMPORT_IN" class="btn ADD" id="idBtnAdd" type="button"><span class="icon-plus-sign"/>Import</button>
+	  <button class="btn SEARCH" id="idBtnSearch" type="button"><span class="icon-search"/>Search</button>
+      <button class="btn RESET" id="btnReset" type="reset"><span class="icon-repeat"/>Reset</button>
+<!-- 	  <button action="DELETE" action_attribute="component_id:divGridViewInit;datascheme_id:DSPNY_INITIATION;is_save_onclick:1;after_callback_params:postback_button=#idBtnSearch;function_after_callback:__AFTER_DELETE" 
+	  class="btn DELETE" 
+	  id="btnDelete" 
+	  name="Input" 
+	  value="Delete">
+		<span class="icon-remove-sign"/>Delete
+	  </button> -->
+    </div>
+    <div class="row-fluid box-c1">
+		<div 
+			action_variable_set="View:PAGE_ID=UIPNY_INITIATION_IN;PKEY1=.APPL_ID;PKEY2=;PKEY3=;PKEY4=;EXTENDEDPARAM=;MODE=VIEW|Edit:PAGE_ID=UIPNY_INITIATION_IN;PKEY1=.APPL_ID;PKEY2=;PKEY3=;PKEY4=;EXTENDEDPARAM=;MODE=EDIT;OPERATIONAL_CLASS=EDIT" 
+			class="test" 
+			column_align=",,,," 
+			column_fields="APPLICANT_NAME,CARD_ID_NO,CLIENT_NAME,APPL_NO,APPL_STATUS_DESC"
+			column_format="" 
+			column_names="Debitur Name,Id No,Client Name,Application No,Status"
+			ds="DSPNY_INITIATION" 
+			event_attach="#idBtnSearch" 
+			extendedparam="" 
+			fields="APPLICANT_NAME,CARD_ID_NO,CLIENT_NAME,APPL_NO,APPL_STATUS,APPL_ID,APPL_STATUS_DESC"
+			function="GRIDVIEW" 
+			id="divGridViewInit" 
+			name="divGridViewInit" 
+			page_size="10" 
+			pkey1="" 
+			pkey2="" 
+			pkey3="" 
+			pkey4="" 
+			show_checkbox="1" 
+			show_option="0" 
+			sort_columns="APPLICANT_NAME,CARD_ID_NO,CLIENT_NAME,APPL_NO,APPL_STATUS_DESC">
+		</div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

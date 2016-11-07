@@ -1,0 +1,30 @@
+<root DSID="DSPNY_LOOKUPZONAAREA">
+	<table name="PNY_MD_ZONA_AREA" connid="cn1">
+		<field fieldname="ZONA_AREA_ID" fieldtype="NUMBER" fieldview="HIDE_ZONA_AREA_ID" />
+		<field fieldname="BRANCH_ID" fieldtype="NUMBER" fieldview="HIDE_BRANCH_ID" />
+		<field fieldname="ZONA" fieldtype="VARCHAR2" fieldview="ZONA" />
+		<field fieldname="KECAMATAN" fieldtype="VARCHAR2" fieldview="KECAMATAN" />
+		<field fieldname="KELURAHAN" fieldtype="VARCHAR2" fieldview="KELURAHAN" />
+		<field fieldname="POSTAL_CODE" fieldtype="VARCHAR2" fieldview="POSTAL_CODE" />
+		<field fieldname="AREA" fieldtype="VARCHAR2" fieldview="AREA" />
+		<field fieldname="RECORD_STATUS" fieldtype="VARCHAR2" fieldview="HIDE_RECORD_STATUS" />		
+		<pkey id="1" fieldname="ZONA_AREA_ID" fieldtype="NUMBER" seq="PNY_MD_ZONA_AREA_SEQ"/>
+	</table>
+	<table name="DUMMY" connid="cn1" viewonly="true">
+		<field fieldname="BRANCH_NAME" fieldtype="VARCHAR2" fieldview="BRANCH_NAME" />	
+	</table>
+<select>
+	SELECT
+		PMZA.ZONA_AREA_ID AS HIDE_ZONA_AREA_ID,
+		PMZA.BRANCH_ID AS HIDE_BRANCH_ID,
+		(SELECT BRANCH_NAME FROM PNY_MD_BRANCH WHERE BRANCH_ID = PMZA.BRANCH_ID) AS BRANCH_NAME,
+		PMZA.ZONA,
+		PMZA.KECAMATAN,
+		PMZA.KELURAHAN,
+		PMZA.POSTAL_CODE,
+		PMZA.AREA,
+		PMZA.RECORD_STATUS AS HIDE_RECORD_STATUS
+	FROM
+	PNY_MD_ZONA_AREA PMZA	
+</select>
+</root>

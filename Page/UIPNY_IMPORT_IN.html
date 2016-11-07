@@ -1,0 +1,112 @@
+<html pageid="UIPNY_IMPORT_IN">
+	<head>
+		<title></title>
+		<meta content="MSHTML 6.00.2900.5512" name="GENERATOR" />
+	</head>
+	<body>
+		<div dataschemeid="DSPNY_IMPORT;;;;;;;1;1;1;" function="PAGE" pageid="UIPNY_IMPORT_IN" script_page="afterLoad_UIPNY_IMPORT_IN">
+			<h1>Import Data</h1>
+			<form method="post" name="frmOwnerGrp">
+				<div class="btn-group pull-right">
+					<button 
+						action="SAVE" 
+						action_attribute="function_before_action:;function_after_callback:__AFTER_SAVE;after_callback_params:redirect_page=UIPNY_INITIATION_WL,element_load_page=#content" 
+						class="btn SAVE" 
+						desc="Save" 
+						id="idbtnSave" 
+						name="btnSave" 
+						type="button" 
+						value="Save"><span class="icon-hdd"/>Submit
+					</button>
+					<button 
+						action="BACK" 
+						action_attribute="function_after_callback:__AFTER_CANCEL;after_callback_params:redirect_page=UIPNY_INITIATION_WL,element_load_page=#content" 
+						class="btn BACK" 
+						desc="Back" 
+						id="idbtnCancel" 
+						name="btnCancel" 
+						type="button" 
+						value="Back">
+						<span class="icon-arrow-left"/>Cancle
+					</button>
+				</div>
+				<div class="row-fluid box-c2">
+					<div class="control-groups span4">
+						<label class="control-labels">Tanggal Terima</label> 
+						<input desc="Tanggal Terima" field="RECEIVER_DATE" id="idTanggalTerima" name="idTanggalTerima" type="text" typedata="date" format="dd/mm/yy"  validate="required" validatemessage="Tanggal terima harus diisi" />
+					</div>
+					<div class="control-groups span4">
+						<label class="control-labels">Product Type</label> 
+						<select 
+							id="idProductType" 
+							name="idProductType" 
+							parameter="PNY_PRODUCT_TYPE" 
+							field="PRODUCT_TYPE" 
+							placeholder="" 
+							type="text" 
+							validate="required" 
+							validatemessage="Nama Kode harus diisi"
+							typedata="string">
+						</select>
+					</div>
+					<div class="control-group span4">
+						<label class="control-labels">Client</label> 
+						<div class="controls input-append">
+							<input field="CLIENT_NAME" readonly="readonly" id="idClientName" name="idClientName" type="text" validate="required" validatemessage="Client Name is required" />
+							<button class="btn" id="idClientBtn" name="idClientBtn" type="button">
+								<span class="icon-search"/>
+							</button>
+						</div>
+						<div ds="DSPNY_LOOKUPCLIENT" 
+							event_attach="#idClientBtn" 
+							function="LOOKUP" 
+							height="450" 
+							id="idLookupClient" 
+							name="idLookupClient" 
+							selection_maping="#idClientName:CLIENT_NAME"
+							show_checkbox="0" 
+							title="Search Client" 
+							width="900">
+						</div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-labels">Branch</label> 
+						<div class="controls input-append">
+							<input field="BRANCH_NAME" readonly="readonly" id="idBranchName" name="idBranchName" type="text" validate="required" validatemessage="Branch Name is required" />
+							<button class="btn" id="idBranchBtn" name="idBranchBtn" type="button">
+								<span class="icon-search"/>
+							</button>
+						</div>
+						<div ds="DSPNY_LOOKUPBRANCH" 
+							event_attach="#idBranchBtn" 
+							function="LOOKUP" 
+							height="450" 
+							id="idLookupBranch" 
+							name="idLookupBranch" 
+							selection_maping="#idBranchName:BRANCH_NAME"
+							show_checkbox="0" 
+							title="Search Branch" 
+							width="900">
+						</div>
+					</div>
+					<div class="control-group span4">
+						<label class="control-labels">Choose File</label> 
+						<input id="userFile" name="userFile" type="file" />
+						<button 
+							action="TEST" 
+							class="btn SAVE view" 
+							desc="Upload File Excel" 
+							id="buttonUploadFile" 
+							name="buttonUploadFile" 
+							onclick="procesUploadFile()" 
+							type="button" 
+							value="Upload">
+							<span class="icon-plus-sign"/>Upload
+						</button>
+					</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
