@@ -9,7 +9,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-public class BGP_SVYINP_NEXT extends BaseScript {
+public class BGP_CHECKER_BACK extends BaseScript {
 
 	@Override
 	public String execute(ArrayList _al) throws Exception {
@@ -25,24 +25,14 @@ public class BGP_SVYINP_NEXT extends BaseScript {
 			Map<String, Object> mpClauze = new HashMap<String, Object>();
 			Map<String, Object> mpClauze2 = new HashMap<String, Object>();		
 			
-			if (action.equals("PROCEED")) {				
-				// approve
-				mpClauze = new HashMap<String, Object>();		
-				mpClauze.put("APPL_ID",String.valueOf(mapOfFields.get("APPL_ID")));
-				mpClauze.put("LAST_USER_ID", prmUserId);
-				mpClauze.put("LAST_UPDATE", "SYSDATE");
-				mpClauze.put("APPL_STATUS","C");
-				
-				getDao().executeProcedureDSWithCn("cn1","DSPNY_APL_STATUS$PNY_TX_APPLICATION_UPDATE", mpClauze);
-			}		
-			else if (action.equals("REJECT")) {
-				// approve
+			if (action.equals("REJECT")) {
+				// Reject to Supervisor Surveyor with status Return From Checker
 				mpClauze2 = new HashMap<String, Object>();		
 				
 				mpClauze2.put("APPL_ID",String.valueOf(mapOfFields.get("APPL_ID")));
 				mpClauze2.put("LAST_USER_ID", prmUserId);
 				mpClauze2.put("LAST_UPDATE", "SYSDATE");
-				mpClauze2.put("APPL_STATUS","RS");
+				mpClauze2.put("APPL_STATUS","SP");
 				
 				getDao().executeProcedureDSWithCn("cn1","DSPNY_APL_STATUS$PNY_TX_APPLICATION_UPDATE", mpClauze2);
 			}
@@ -58,7 +48,7 @@ public class BGP_SVYINP_NEXT extends BaseScript {
 		List<Object> objLS = null;
 
 		for (Map.Entry<String, Object> ie : map.entrySet()) {
-			if (ie.getKey().equals("DSPNY_SVYINP")) {
+			if (ie.getKey().equals("DSPNY_CHECKER")) {
 				objLS = (ArrayList<Object>) ie.getValue();
 
 				if (objLS != null && !objLS.isEmpty()) {
@@ -76,7 +66,7 @@ public class BGP_SVYINP_NEXT extends BaseScript {
         map = (Map<String, Object>) gson.fromJson(_stringOfGson, map.getClass());
         List<Object> objLS=null;
         for (Map.Entry<String, Object> ie : map.entrySet()) {
-        	if (ie.getKey().equals("DSPNY_SVYINP")) {
+        	if (ie.getKey().equals("DSPNY_CHECKER")) {
         		objLS = (List<Object>) ie.getValue();
         		return objLS;
         	}

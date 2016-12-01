@@ -1,15 +1,19 @@
 afterLoadInitiation = function(){
-	// var surveyTYpe = $_OCT('#txtSURVEY_TYPE').val();		
+	var surveyTYpe = $_OCT('#txtSURVEY_TYPE').val();		
 	
-	// if (surveyTYpe == "RK"){
-		// $_OCT(".classDataRumah").show();
-	// } else if (surveyTYpe == "R"){
-			// $_OCT(".classDataRumah").show();
-	// }else if (surveyTYpe == "K"){
-			// $_OCT(".classDataRumah").hide();
-		// }else if (surveyTYpe == ""){
-			// $_OCT(".classDataRumah").hide();
-		// }
+	if (surveyTYpe == "RK"){
+		$_OCT(".clsRumah").show();
+		$_OCT(".clsKantor").show();
+	} else if (surveyTYpe == "R"){
+			$_OCT(".clsRumah").show();
+			$_OCT(".clsKantor").hide();
+	}else if (surveyTYpe == "K"){
+			$_OCT(".clsRumah").hide();
+			$_OCT(".clsKantor").show();
+		}else if (surveyTYpe == ""){
+			$_OCT(".clsRumah").hide();
+			$_OCT(".clsKantor").hide();
+		}
 }
 
 ReqKdPs = function(){
@@ -19,18 +23,23 @@ ReqKdPs = function(){
 	else return false;
 }
 
-// $_OCT('#txtSURVEY_TYPE').on('change', function() {
-			// var surveyTYpe = $_OCT('#txtSURVEY_TYPE').val();	
-			// if (surveyTYpe == "RK"){
-				// $_OCT(".classDataRumah").show();
-			// } else if (surveyTYpe == "R"){
-					// $_OCT(".classDataRumah").show();
-			// }else if (surveyTYpe == "K"){
-					// $_OCT(".classDataRumah").hide();
-				// }else if (surveyTYpe == ""){
-					// $_OCT(".classDataRumah").hide();
-				// }
-// });
+$_OCT('#txtSURVEY_TYPE').on('change', function() {
+		var surveyTYpe = $_OCT('#txtSURVEY_TYPE').val();		
+		
+		if (surveyTYpe == "RK"){
+			$_OCT(".clsRumah").show();
+			$_OCT(".clsKantor").show();
+		} else if (surveyTYpe == "R"){
+				$_OCT(".clsRumah").show();
+				$_OCT(".clsKantor").hide();
+		}else if (surveyTYpe == "K"){
+				$_OCT(".clsRumah").hide();
+				$_OCT(".clsKantor").show();
+			}else if (surveyTYpe == ""){
+				$_OCT(".clsRumah").hide();
+				$_OCT(".clsKantor").hide();
+			}
+});
 
 ReqtxtSURVEY_METHOD = function(){
 	var vtxtSURVEY_TYPE  = $_OCT('#txtSURVEY_TYPE').val();
